@@ -70,7 +70,7 @@ function backMain() {
     firstButtonIcon.classList.replace('dp-block', 'dp-none');
     //hide add-instruction content
     etherPadContent.classList.replace('dp-block', 'dp-none');
-
+    reminderContent.classList.replace('dp-block', 'dp-none')
     for (var i = 0; i < restButtons.length; i += 1) {
         restButtons[i].style.display = 'block';
     }
