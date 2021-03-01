@@ -53,9 +53,9 @@ a {
   font-size:22px;
   font-weight:400;
 }
-/* font-awesome icon*/
+/* material icon*/
 .open-garden-icon {
-  font-size:30px;
+  font-size:30px !important;
   align-self: center;
   cursor: pointer; 
   color:white;
@@ -283,14 +283,15 @@ a {
  }
 /*Alt-Text Send Button*/
 #at-input-send {
- font-size:30px;
  color:white;
  align-self: center;
  cursor: pointer;
  margin-right:50px;
  margin-left:-50px;
 }
-
+#at-input-send span {
+  font-size: 30px !important;
+}
 
 /*Pop-up Content*/
 #pop-up-about {

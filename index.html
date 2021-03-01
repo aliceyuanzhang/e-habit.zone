@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 
 </head>
@@ -17,7 +18,12 @@
     <div id="main-div-wrapper">
         <section class="main-div" id="top-section">
             <article class="top-section-a">
-                <i class="far fa-question-circle open-garden-icon onTop" onclick="openAbout()"></i>
+                <!--
+                    <i class="far fa-question-circle open-garden-icon onTop" onclick="openAbout()"></i>
+                -->
+                <span class="material-icons open-garden-icon onTop" onclick="openAbout()">
+                    help_outline
+                </span>
                 <i class="icon-text" style="top:3vh">about</i>
 
             </article>
@@ -82,7 +88,9 @@
                         <input type="text" id="at-input" class="alt-text-input" name="fill in alt-text observation"
                             placeholder="Write Your Observation">
                         <article id="at-input-send" class="dp-none" onclick="pushAltText()">
-                            <i class="fas fa-paper-plane"></i>
+                            <span class="material-icons">
+                                send
+                            </span>
                         </article>
                     </form>
                 </div>
@@ -132,7 +140,12 @@
                 </p>
             </article>
             <article>
+                <span id="close-icon" class="material-icons open-garden-icon atBottom" onclick="closeAbout()">
+                    highlight_off
+                </span>
+                <!--
                 <i id="close-icon" class="fas fa-times open-garden-icon atBottom" onclick="closeAbout()"></i>
+                -->
                 <i class="icon-text" style="bottom:3vh">close</i>
 
         </div>
