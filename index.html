@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css" />
     <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="node_modules/pretty-checkbox/dist/pretty-checkbox.min.css">
 
 </head>
 
@@ -26,26 +27,68 @@
                 <p>Next Instructions Runs in 3 Days 1 Hour 30 Min</p>
             </article>
 
-
         </section>
         <section class="main-div" id="main-section">
+            <!--The Livestreaming Background-->
             <div id="livestreaming-div">
-                <!-- where iframe is embedded-->
+                <!-- where livestream iframe is embedded-->
                 <iframe id="live-streaming-feed" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
+            </div>
+            <!--The Alt Text Section-->
+            <div id="pop-up-add-alt"></div>
+            <!--The Instruction Section-->
+            <div id="pop-up-add-instruction" class="main-content-onFeed dp-none">
+                <article>
+                    <p>This is an evolving list of requests for the garden. You are invited to experiment, negotiate,
+                        dream, destroy, compost, revive, exchange.
+                    </p>
+                    <p>Requests left on the pad by Friday 10pm of each week will be
+                        carried out Sunday at 10am (PST)</p>
+                </article>
+                <iframe id="embedded-etherpad" name="embed_readwrite"
+                    src="https://complicatingthecomputermouse.net:9001/p/Alice_Yuan?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+                    frameborder="0"></iframe>
+            </div>
+            <!--The Set Reminder Section-->
+            <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
+                <form id="reminder-content-wrapper">
+                    <h2>Set weekly reminders to check back</h2>
+                    <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
+                        placeholder="Email Address">
+                    <fieldset>
+                        <div class="instruction-div pretty p-default p-round">
+                            <input type="checkbox" id="instruction-close" class="reminder-checkbox"
+                                name="instruction-close" value="Remind me when instructions are about to close">
+                            <label class="reminder-checkbox-text" for="instruction-close">Remind me when instructions
+                                are about to close</label>
+                        </div>
+                        <div class="instruction-div">
+                            <input type="checkbox" id="instruction-run" class="reminder-checkbox" name="instruction-run"
+                                value="Remind me when instructions are about to run">
+                            <label class="reminder-checkbox-text" for="instruction-close">Remind me when instructions
+                                are about to run</label>
+                        </div>
+                    </fieldset>
+                    <button onclick="submitReminder()">submit →</button>
+                </form>
             </div>
         </section>
         <section class="main-div" id="menu-section">
             <div id="choice-list">
                 <div id="alt-text-div">
                     <button class="choice-button restButtons" onclick="expandAltText()">Add Alt</button>
-                    <input type="text" id="at-input" class="alt-text-input" name="alt-text-content"
-                        placeholder="Write Your Observation">
-                    <i class="fas fa-paper-plane"></i>
+                    <form id="at-form" class="dp-none">
+                        <input type="text" id="at-input" class="alt-text-input" name="fill in alt-text observation"
+                            placeholder="Write Your Observation">
+                        <article id="at-input-send" class="dp-none" onclick="pushAltText()">
+                            <i class="fas fa-paper-plane"></i>
+                        </article>
+                    </form>
                 </div>
-                <div class="choice-button restButtons">Add Instructions</div>
-                <div class="choice-button restButtons">Set Reminder</div>
+                <div class="choice-button restButtons" onclick="showEtherpad()">Add Instructions</div>
+                <div class="choice-button restButtons" onclick="setReminder()">Set Reminder</div>
                 <div id="choice-button-back" class="choice-button" style="display: none;" onclick="backMain()">Back
                 </div>
             </div>
