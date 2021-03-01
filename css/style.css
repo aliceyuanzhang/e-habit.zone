@@ -13,7 +13,7 @@ a {
 #main-div-wrapper {
   margin-left:10vw;
   margin-right:10vw;
-  margin-top:5vh;
+  margin-top:3vh;
 
 }
 .main-div {
@@ -23,7 +23,7 @@ a {
 #top-section {
  display: block;
  align-items: center;
- height:4.5vh;/*12.5-5(top)-2(bottom)*/
+ /*height:4.5vh;12.5-5(top)-2(bottom)*/ 
 }
 
 .top-section-a {
@@ -48,11 +48,21 @@ a {
   font-size:30px;
   font-weight:700;
 }
-#top-section p{
+.cd-time{
   font-family: Arial;
-  font-size:22px;
+  font-size:18px;
   font-weight:400;
 }
+
+#countdownClock_close {
+
+}
+
+#countdownClock_run {
+
+}
+
+
 /* material icon*/
 .open-garden-icon {
   font-size:30px !important;
@@ -64,7 +74,23 @@ a {
   transition: width 500ms;
   z-index: 2;
 }
+/* music playing button*/
+#music-icon-wrapper {
+ position:absolute;
+ cursor:pointer;
+}
 
+#music-on, #music-off  {
+  color: black;
+  font-size: 30px !important;
+}
+
+#music-on {
+ display:block;
+}
+#music-off {
+  display:none;
+}
 .onTop {
   top:3vh;
   right:3vw;}
@@ -72,6 +98,10 @@ a {
 .atBottom {
   bottom:3vh;
   right:3vw;
+}
+.atButtom-left {
+  bottom:3vh;
+  left:3vw;
 }
 .open-garden-icon:hover {
  width:70px;
@@ -98,22 +128,23 @@ a {
 #livestreaming-div {
   width:100%;
   height:75vh;
-  background-color: burlywood;
-  border-color: white;
-  border-radius: 30px;
+  background-color: transparent;
+
 }
 
 #live-streaming-feed {
   display:block;
   width:100%;
-  height:100%;
+  height: 75vh;
   margin-left: auto;
   margin-right:auto;
+  border: 3px white solid;
+  border-radius: 30px;
 }
 /*embedded etherpad*/
 .main-content-onFeed {
   width:75vw;
-  height:60vh;
+  height:65vh;
   position: absolute;
   left: 50%;
   top:50%;
@@ -135,7 +166,7 @@ a {
 #embedded-etherpad {
   display:block;
   width:90%;
-  height:70%;
+  height:65%;
   margin-left:auto;
   margin-right:auto;
   align-self: center;
@@ -163,19 +194,10 @@ a {
   text-transform: uppercase;
   ;
 }
-#email-setup {
-  width:100%;
-  font-size:22px;
-  line-height: 40px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color:white;
-  background-color: rgba(250, 250, 250, 0.3);
-  border: white 3px solid;
-  border-radius: 20px;
-  }
+
 #reminder-content-wrapper fieldset {
   margin-top:3vh;
+  margin-bottom: 3vh;
   width:100%;
   align-content: center;
   border:transparent;
@@ -204,17 +226,35 @@ a {
   line-height:30px;
   text-align: left;
 }
-/*reminder submit buttons*/
-#reminder-content-wrapper button {
-  width:50%;
-  font-family: Arial, Helvetica, sans-serif;
+/*Email input and the send button*/
+#reminder-email {
+display:flex;
+width:100%;
+}
+
+#email-setup {
+  display:block;
+  width:100%;
   font-size:22px;
+  padding-left:5px;
+  line-height: 40px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+  background-color: rgba(250, 250, 250, 0.3);
+  border: white 3px solid;
+  border-radius: 20px;
+  }
+
+/*reminder submit buttons*/
+#reminder-content-wrapper span {
+  font-size:30px;
   line-height: 40px;
   padding-left: 5px;
   padding-right:5px;
+  margin-left: -50px;
+  align-self: center;
   color:white;
-  background-color: rgba(250, 250, 250, 0.3);
-  border-radius: 20px;
   cursor: pointer;
 }
 /*Menu Section*/
@@ -292,6 +332,12 @@ a {
 #at-input-send span {
   font-size: 30px !important;
 }
+#choice-button-back {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
 
 /*Pop-up Content*/
 #pop-up-about {

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>Open Garden By Alice Yuan Zhang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="This is the open garden project by Alice Yuan Zhang and supported by CultureHub">
+    <meta name="description"
+        content="This is the open garden project created by Alice Yuan Zhang and supported by CultureHub">
     <meta name="author" content="Alice Yuan Zhang & CultureHub Inc.">
 
     <link rel="stylesheet" href="css/style.css">
@@ -14,22 +15,30 @@
 
 </head>
 
-<body>
+<body">
     <div id="main-div-wrapper">
         <section class="main-div" id="top-section">
             <article class="top-section-a">
-                <!--
-                    <i class="far fa-question-circle open-garden-icon onTop" onclick="openAbout()"></i>
-                -->
                 <span class="material-icons open-garden-icon onTop" onclick="openAbout()">
                     help_outline
                 </span>
                 <i class="icon-text" style="top:3vh">about</i>
 
             </article>
-            <article class=" top-section-a">
+            <article class="top-section-a">
                 <h1>Open Garden</h1>
-                <p>Next Instructions Runs in 3 Days 1 Hour 30 Min</p>
+                <p id="countdownClock_close" class="cd-time">Next instruction closes in...</p>
+                <p id="countdownClock_run" class="cd-time">Next instruction runs in...</p>
+
+            </article>
+            <!--the music icon-->
+            <article id="music-icon-wrapper" class="atButtom-left">
+                <span id="music-on" class="material-icons" onclick="musicToggleOn()">
+                    music_note
+                </span>
+                <span id="music-off" class="material-icons" onclick="musicToggleOff()">
+                    music_off
+                </span>
             </article>
 
         </section>
@@ -37,9 +46,7 @@
             <!--The Livestreaming Background-->
             <div id="livestreaming-div">
                 <!-- where livestream iframe is embedded-->
-                <iframe id="live-streaming-feed" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <img id="live-streaming-feed" src="http://76.93.33.31:8081/" frameborder="0" />
             </div>
             <!--The Alt Text Section-->
             <div id="pop-up-add-alt"></div>
@@ -60,8 +67,6 @@
             <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
                 <form id="reminder-content-wrapper">
                     <h2>Set weekly reminders to check back</h2>
-                    <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
-                        placeholder="Email Address">
                     <fieldset>
                         <div class="instruction-div">
                             <input type="checkbox" id="instruction-close" class="reminder-checkbox"
@@ -76,7 +81,11 @@
                                 are about to run</label>
                         </div>
                     </fieldset>
-                    <button onclick="submitReminder()">submit →</button>
+                    <div id="reminder-email">
+                        <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
+                            placeholder="Email Address">
+                        <span class="material-icons" onclick="submitReminder()">arrow_right_alt</span>
+                    </div>
                 </form>
             </div>
         </section>
@@ -143,14 +152,11 @@
                 <span id="close-icon" class="material-icons open-garden-icon atBottom" onclick="closeAbout()">
                     highlight_off
                 </span>
-                <!--
-                <i id="close-icon" class="fas fa-times open-garden-icon atBottom" onclick="closeAbout()"></i>
-                -->
                 <i class="icon-text" style="bottom:3vh">close</i>
 
         </div>
     </div>
     <script src="js/main.js"></script>
-</body>
+    </body>
 
 </html>

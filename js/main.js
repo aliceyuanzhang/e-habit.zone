@@ -1,3 +1,4 @@
+//show and hide about-page
 function openAbout() {
     document.getElementById('pop-up-about').style.visibility = "visible";
 
@@ -7,7 +8,57 @@ function closeAbout() {
     document.getElementById('pop-up-about').style.visibility = "hidden";
 };
 
+//fetch countdown for run and close
+const endtime_close = 'March 19 2021 00:00:00 GMT-08:00';
+const endtime_run = "'March 21 2021 00:00:00 GMT-08:00'"
 
+function getTimeRemaining(deadline) {
+    const total = Date.parse(deadline) - Date.parse(new Date());
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+    return {
+        total,
+        days,
+        hours,
+        minutes,
+        seconds
+    };
+}
+
+var countdown_close = document.getElementById('countdownClock_close');
+var cd_close_days = getTimeRemaining(endtime_close).days;
+var cd_close_hours = getTimeRemaining(endtime_close).hours;
+var cd_close_mins = getTimeRemaining(endtime_close).minutes;
+
+var countdown_run = document.getElementById('countdownClock_run');
+var cd_run_days = getTimeRemaining(endtime_run).days;
+var cd_run_hours = getTimeRemaining(endtime_run).hours;
+var cd_run_mins = getTimeRemaining(endtime_run).minutes;
+
+var day_unit = " days ";
+var hour_unit = " hours ";
+var min_unit = " minutes.";
+
+//count down to close
+function countdownClock_close() {
+    countdown_close.innerHTML = "Next instruction closes in " + cd_close_days + day_unit + cd_close_hours + hour_unit + cd_close_mins + min_unit;
+}
+countdownClock_close();
+setInterval(countdownClock_close, 10000);
+
+//count down to run
+function countdownClock_run() {
+    countdown_run.innerHTML = "Next instruction runs in " + cd_run_days + day_unit + cd_run_hours + hour_unit + cd_run_mins + min_unit;
+}
+countdownClock_run();
+setInterval(countdownClock_run, 10000);
+
+//___________________________________________
+//modify menu bottons
+//
 var firstButtonForm = document.getElementById('at-form')
 var firstButtonInput = document.getElementById('at-input');
 var firstButtonIcon = document.getElementById('at-input-send');
@@ -28,10 +79,15 @@ function expandAltText(e) {
     }, 20)
 };
 
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
 function pushAltText() {
-    alert("you clicked me!")
+    var inputContent = document.getElementById('at-input').value;
+    console.log("You observed that " + inputContent + " at " + date)
 }
 
+//add instruction section
 var etherPadContent = document.getElementById('pop-up-add-instruction');
 
 function showEtherpad() {
@@ -44,6 +100,7 @@ function showEtherpad() {
     backButton.style.display = "block";
 }
 
+//add reminder section
 var reminderContent = document.getElementById('pop-up-set-reminder');
 
 function setReminder() {
@@ -75,4 +132,24 @@ function backMain() {
         restButtons[i].style.display = 'block';
     }
     backButton.style.display = "none";
+}
+//
+//modify menu bottons
+//___________________________________________
+
+
+//music playing
+var musicButtonPlay = document.getElementById('music-on');
+var musicButtonPause = document.getElementById('music-off');
+
+function musicToggleOn(e) {
+    console.log('come some music');
+    musicButtonPlay.style.display = "none";
+    musicButtonPause.style.display = "block";
+}
+
+function musicToggleOff(e) {
+    console.log('Shhh..');
+    musicButtonPlay.style.display = "block";
+    musicButtonPause.style.display = "none";
 }

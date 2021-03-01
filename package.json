@@ -1,6 +1,6 @@
 {
   "name": "opengarden",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An ecological remediation site for social media trauma.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "url": "git+https://github.com/aliceyuanzhang/opengarden.git"
   },
   "keywords": [],
-  "author": "Alice Yuan Zhang, Tong Wu from CultureHub",
+  "author": "Alice Yuan Zhang & CultureHub Inc.",
+  "contributors": ["Tong Wu", "Bhavik Singh","Alexander Babbitt"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aliceyuanzhang/opengarden/issues"
