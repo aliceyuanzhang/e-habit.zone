@@ -8,16 +8,16 @@ html {
 a {
   color:white;
   text-decoration: none;
-  border-bottom: white 1px dashed;
+  border-bottom: white 1px dotted;
 }
 #main-div-wrapper {
-  margin-left:10vw;
-  margin-right:10vw;
-  margin-top:3vh;
+  margin-left:20vw;
+  margin-right:20vw;
+  margin-top:5vh;
 
 }
 .main-div {
-  margin-bottom: 2vh;
+  margin-bottom: 5vh;
 }
 
 #top-section {
@@ -32,8 +32,8 @@ a {
 }
 #top-section h1, #top-section p {
   display:block;
-  margin-top:10px;
-  margin-bottom: 10px;
+  margin-top:20px;
+  margin-bottom: 5px;
   margin-right: 1vw;
   font-style: normal;
   line-height: 28px;
@@ -45,17 +45,13 @@ a {
 #top-section h1 {
   font-family: Arial;
   text-transform: uppercase;
-  font-size:30px;
-  font-weight:700;
+  font-size:20px;
+  font-weight:600;
 }
 .cd-time{
   font-family: Arial;
   font-size:18px;
   font-weight:400;
-}
-
-#countdownClock_close {
-
 }
 
 #countdownClock_run {
@@ -92,29 +88,29 @@ a {
   display:none;
 }
 .onTop {
-  top:3vh;
-  right:3vw;}
+  top:7vh;
+  right:7vw;}
 
 .atBottom {
-  bottom:3vh;
-  right:3vw;
+  bottom:12vh;
+  right:7vw;
 }
-.atButtom-left {
-  bottom:3vh;
-  left:3vw;
+.atBottom-left {
+  bottom:12vh;
+  left:7vw;
 }
 .open-garden-icon:hover {
  width:70px;
 }
 .open-garden-icon:hover + .icon-text {
-  opacity: 1;
+ opacity: 1;
  }
 
 .icon-text {
   opacity: 0;
   position: absolute;
   color: white;
-  right: 2vw;
+  right: 5vw;
   transition: opacity 500ms;
   font-size:22px;
   line-height: 30px;
@@ -127,7 +123,7 @@ a {
 /*livestreaming*/
 #livestreaming-div {
   width:100%;
-  height:75vh;
+  height:60vh;
   background-color: transparent;
 
 }
@@ -135,23 +131,23 @@ a {
 #live-streaming-feed {
   display:block;
   width:100%;
-  height: 75vh;
+  height: 63vh;
   margin-left: auto;
   margin-right:auto;
-  border: 3px white solid;
-  border-radius: 30px;
+  border: 2px white solid;
+  border-radius: 20px;
 }
 /*embedded etherpad*/
 .main-content-onFeed {
-  width:75vw;
-  height:65vh;
+  width:60vw;
+  height:63vh;
   position: absolute;
   left: 50%;
-  top:50%;
+  top:48%;
   transform: translate(-50%, -50%);
   background-color: rgba(0,0,0,0.5);
   border-color: white;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 .main-content-onFeed p {
   margin-left: auto;
@@ -160,15 +156,15 @@ a {
   font-family: Arial, Helvetica, sans-serif;
   color:white;
   line-height:30px;
-  font-size:18px;
+  font-size:14px;
   text-align: left;
 }
 #embedded-etherpad {
   display:block;
   width:90%;
-  height:65%;
-  margin-left:auto;
-  margin-right:auto;
+  height:70%;
+  margin-left: auto;
+  margin-right: auto;
   align-self: center;
 }
 /*set reminder*/
@@ -179,7 +175,7 @@ a {
   height:100%;
   display:flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 }
 #reminder-content-wrapper h2 {
@@ -189,10 +185,8 @@ a {
   font-family: Arial, Helvetica, sans-serif;
   color:white;
   line-height:30px;
-  font-size:22px;
+  font-size:18px;
   text-align: center;
-  text-transform: uppercase;
-  ;
 }
 
 #reminder-content-wrapper fieldset {
@@ -221,9 +215,9 @@ a {
 .reminder-checkbox-text {
   width:100%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size:22px;
+  font-size:18px;
   color:white;
-  line-height:30px;
+  line-height:20px;
   text-align: left;
 }
 /*Email input and the send button*/
@@ -235,14 +229,14 @@ width:100%;
 #email-setup {
   display:block;
   width:100%;
-  font-size:22px;
-  padding-left:5px;
-  line-height: 40px;
+  font-size:18px;
+  padding-left:20px;
+  line-height: 20px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   color:white;
   background-color: rgba(250, 250, 250, 0.3);
-  border: white 3px solid;
+  border: white 2px solid;
   border-radius: 20px;
   }
 
@@ -266,22 +260,22 @@ width:100%;
 }
 .choice-button {
   display: block;
-  width: 25vw;
-  margin-top: 10px;
+  width: 19vw;
+  margin-top: 5px;
   margin-bottom: 10px;
-  padding: 15px 5px 15px 5px;
+  padding: 10px 10px 10px 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size:18px;
   color: white;
   text-align: center;
-  background-color: rgba(250, 250, 250, 0.3);
-  border: white 3px solid;
-  border-radius: 20px;
+  background-color: rgba(250, 250, 250, 0);
+  border: white 2px solid;
+  border-radius: 14px;
   cursor: pointer; 
 }
 .choice-button:hover {
-  border: white 3px dashed;
-  background-color: rgba(99, 99, 99, 0.5);
+  border: white 2px solid;
+  background-color: rgba(250, 250, 250, 0.2);
 }
 /*Alt Text Input Bar */
 
@@ -289,8 +283,10 @@ width:100%;
   margin:0 0 0 0;
 }
 #at-input {
-  margin-top:10px;
+  margin-top:5px;
   margin-bottom: 10px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 14px;
 }
 .alt-text-input {
   display:none;
@@ -300,17 +296,17 @@ width:100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size:18px;
   color:black;
-  width: 25vw;
+  width: 20vw;
   padding: 15px 5px;
   margin-right:0;
-  background-color:  rgba(250, 250, 250, 0.3);
-  border: white 3px solid;
+  background-color: rgba(250, 250, 250, 0.3);
+  border: white 2px solid;
   border-radius: 20px;
-  transition: width 500ms ease-in;
+  transition: width 600ms ease-in;
  }
 
 .expandWidth {
-  width: 60vw;
+  width: 50vw;
  }
 
 .shrinkWidth {
@@ -346,19 +342,20 @@ width:100%;
   top:0px; 
   bottom:0px; 
   width: 100%;
-  background-color: rgba(0,0,0,1);
-  align-content: center;
+  background-color: rgba(0,0,0,.7);
+  align-content: top;
   z-index:3;
 }
 #pop-up-about article {
   display:block;
-  max-width: 900px;
-  margin-left:auto;
+  max-width: 750px;
+  margin-left:10%;
   margin-right:auto;
+  margin-top: 75px;
 }
 #pop-up-about p {
-  line-height:40px;
-  font-size:22px;
+  line-height:22px;
+  font-size:16px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   color:white;
