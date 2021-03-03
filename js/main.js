@@ -9,8 +9,7 @@ function closeAbout() {
 };
 
 //fetch countdown for run and close
-const endtime_close = 'March 19 2021 00:00:00 GMT-08:00';
-const endtime_run = "'March 21 2021 00:00:00 GMT-08:00'"
+const endtime_run = 'March 21 2021 00:00:00 GMT-08:00';
 
 function getTimeRemaining(deadline) {
     const total = Date.parse(deadline) - Date.parse(new Date());
@@ -28,11 +27,6 @@ function getTimeRemaining(deadline) {
     };
 }
 
-var countdown_close = document.getElementById('countdownClock_close');
-var cd_close_days = getTimeRemaining(endtime_close).days;
-var cd_close_hours = getTimeRemaining(endtime_close).hours;
-var cd_close_mins = getTimeRemaining(endtime_close).minutes;
-
 var countdown_run = document.getElementById('countdownClock_run');
 var cd_run_days = getTimeRemaining(endtime_run).days;
 var cd_run_hours = getTimeRemaining(endtime_run).hours;
@@ -42,16 +36,10 @@ var day_unit = " days ";
 var hour_unit = " hours ";
 var min_unit = " minutes.";
 
-//count down to close
-function countdownClock_close() {
-    countdown_close.innerHTML = "Next instruction closes in " + cd_close_days + day_unit + cd_close_hours + hour_unit + cd_close_mins + min_unit;
-}
-countdownClock_close();
-setInterval(countdownClock_close, 10000);
 
 //count down to run
 function countdownClock_run() {
-    countdown_run.innerHTML = "Next instruction runs in " + cd_run_days + day_unit + cd_run_hours + hour_unit + cd_run_mins + min_unit;
+    countdown_run.innerHTML = "Instructions will run in " + cd_run_days + day_unit + cd_run_hours + hour_unit + cd_run_mins + min_unit;
 }
 countdownClock_run();
 setInterval(countdownClock_run, 10000);
