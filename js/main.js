@@ -1,11 +1,15 @@
 //show and hide about-page
 function openAbout() {
+    document.getElementById('about-icon-wrapper').style.visibility = "hidden";
     document.getElementById('pop-up-about').style.visibility = "visible";
+    document.getElementById('close-icon-wrapper').style.visibility = "visible";
 
 };
 
 function closeAbout() {
+    document.getElementById('about-icon-wrapper').style.visibility = "visible";
     document.getElementById('pop-up-about').style.visibility = "hidden";
+    document.getElementById('close-icon-wrapper').style.visibility = "hidden";
 };
 
 //fetch countdown for run and close
@@ -69,10 +73,13 @@ function expandAltText(e) {
 
 var today = new Date();
 var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+var nowTime = today.getHours() + ':' + today.getMinutes();
+var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 function pushAltText() {
     var inputContent = document.getElementById('at-input').value;
-    console.log("You observed that " + inputContent + " at " + date)
+    alert("[" + timeZone + "] " +
+        date + " " + nowTime + " : " + inputContent)
 }
 
 //add instruction section
@@ -86,6 +93,10 @@ function showEtherpad() {
         restButtons[i].style.display = 'none';
     }
     backButton.style.display = "block";
+    backButton.classList.add('align-center');
+    window.setTimeout(function () {
+        backButton.classList.add('choice-back-expandWidth');
+    }, 20)
 }
 
 //add reminder section
@@ -99,6 +110,10 @@ function setReminder() {
         restButtons[i].style.display = 'none';
     }
     backButton.style.display = "block";
+    backButton.classList.add('align-center');
+    window.setTimeout(function () {
+        backButton.classList.add('choice-back-expandWidth');
+    }, 20)
 }
 
 function submitReminder() {
@@ -120,6 +135,9 @@ function backMain() {
         restButtons[i].style.display = 'block';
     }
     backButton.style.display = "none";
+    window.setTimeout(function () {
+        backButton.classList.remove('choice-back-expandWidth', 'align-center');
+    }, 20)
 }
 //
 //modify menu bottons

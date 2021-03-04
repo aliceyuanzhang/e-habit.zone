@@ -18,12 +18,11 @@
 <body">
     <div id="main-div-wrapper">
         <section class="main-div" id="top-section">
-            <article class="top-section-a">
-                <span class="material-icons open-garden-icon onTop" onclick="openAbout()">
+            <article id="about-icon-wrapper" class="onTop">
+                <span class=" material-icons open-garden-icon onTop" onclick="openAbout()">
                     help_outline
                 </span>
-                <i class="icon-text" style="top:7vh">about</i>
-
+                <i class="icon-text" style="top:2vh">about</i>
             </article>
             <article class="top-section-a">
                 <h1>Open Garden</h1>
@@ -39,13 +38,23 @@
                     music_off
                 </span>
             </article>
+            <article id="close-icon-wrapper" class="onTop">
+                <span id="close-icon" class="material-icons open-garden-icon onTop" onclick="closeAbout()">
+                    highlight_off
+                </span>
+                <i class="icon-text" style="top:2vh;z-index:5">close</i>
+            </article>
 
         </section>
         <section class="main-div" id="main-section">
             <!--The Livestreaming Background-->
             <div id="livestreaming-div">
-                <!-- where livestream iframe is embedded-->
+                <!-- where livestream iframe is embedded
                 <img id="live-streaming-feed" src="http://76.93.33.31:8081/" frameborder="0" />
+                -->
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
             <!--The Alt Text Section-->
             <div id="pop-up-add-alt"></div>
@@ -66,13 +75,6 @@
             <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
                 <form id="reminder-content-wrapper">
                     <h2>Send a reminder to check back each week:</h2>
-                    <fieldset>
-                        <!-- <div class="instruction-div">
-                            <input type="checkbox" id="instruction-run" class="reminder-checkbox" name="instruction-run"
-                                value="Remind me when instructions are about to run">
-                            <label class="reminder-checkbox-text" for="instruction-close">It's okay to send me emails.</label>
-                        </div> -->
-                    </fieldset>
                     <div id="reminder-email">
                         <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
                             placeholder="Email Address">
@@ -104,46 +106,66 @@
     </div>
     <div id=" pop-up-menu-wrapper">
         <div id="pop-up-about" style="visibility: hidden">
-            <article>
+            <article id="pop-up-p">
                 <p>
-                    In digital marketing, Facebook and Google are known as walled gardens. By aggressively centralizing and guarding vast amounts of audience data behind closed doors, they secure the bulk of the attention economy. The valued commodity behind these walls is us—habituated, surveilled, weary-eyed. </p>
-                <p>
-                    <i>Open Garden</i> is a durational participatory performance by artist Alice Yuan Zhang, experimenting with the potentiality of our online attention and the labor of digital sovereignty. A garden plot is livestreamed by solar power to the distributed web. Instructions are freely negotiated by site visitors throughout each week, then carried out by the artist. Over the course of a month, <i>Open Garden</i> acts as substrate for active reflection.
-                <p>
-                    Can we begin to decommodify our attention and reclaim digital agency? Where might we direct that attention, and what grows from it? How do we negotiate individual instincts with collective responsibility? What does it mean to govern ourselves in consideration of pace, place, and perspective? 
-                    <br><br><hr><br>
+                    In digital marketing, Facebook and Google are known as walled gardens. By aggressively centralizing
+                    and guarding vast amounts of audience data behind closed doors, they secure the bulk of the
+                    attention economy. The valued commodity behind these walls is us—habituated, surveilled, weary-eyed.
                 </p>
                 <p>
-                    <b>ABOUT THE GARDEN</b><br><br>
-                    
-                    This particular plot of soil shown in the livestream is based on Tongva, Chumash, and Kizh land. Weather here is generally dry and sunny in the Spring, with daytime temperatures ranging from 70-80° F and evenings at around 50-60° F. The garden's fate will change based on the living assemblage of instructions generated here each week, as well as the moderation of the artist. The project will run until mid-April or longer.
-                    <br><br>
-                </p>
-                <p>
-                    <b>ABOUT THE NETWORK</b><br>
-                    <br>
-                    You are currently on a Beaker browser, which runs the Hypercore protocol. Hypercore (hyper://) is a peer-to-peer network where data is held and exchanged between site visitor only. Instead of a central server such as Amazon Web Services, we each can have a direct role in keeping this site live.<br>
-                    <br>
-                    <b>Simply click on <img src="images/hyper-host-icon.png"></img> in the top right corner, then toggle "Host this Hyperdrive".</b> This makes you a node of the network of people hosting <i>Open Garden</i>. Now, whenever you are here, new visitors will be also be able to access the garden. The more people we have hosting together, the more likely the site will be accessible at any given time.
-                    <br><br><hr><br>
-                </p>
-                <p>
-                    Open Garden is created by <a href="https://aliceyuanzhang.com/">Alice Yuan Zhang</a>, a
-                    <a href="https://culturehub.org">Culturehub</a>
-                    resident artist. She is an artist, educator, and immigrant exploring ecology, networks, and interspecies collaboration. 
-                    <br>Web development by Tong Wu and Bhavik Singh
-                    <br>Sound by Alexander Babbitt
-                    <br>Thanks to friends at CultureHub, Surface Tension, and virtual care lab for your patient feedback and support. 
-                    <br><br>
-                </p>
-            </article>
-            <article>
-                <span id="close-icon" class="material-icons open-garden-icon onTop" onclick="closeAbout()">
-                    highlight_off
-                </span>
-                <i class="icon-text" style="top:7vh">close</i>
+                    <i>Open Garden</i> is a durational participatory performance by artist Alice Yuan Zhang,
+                    experimenting with the potentiality of our online attention and the labor of digital sovereignty. A
+                    garden plot is livestreamed by solar power to the distributed web. Instructions are freely
+                    negotiated by site visitors throughout each week, then carried out by the artist. Over the course of
+                    a month, <i>Open Garden</i> acts as substrate for active reflection.
+                    <p>
+                        Can we begin to decommodify our attention and reclaim digital agency? Where might we direct that
+                        attention, and what grows from it? How do we negotiate individual instincts with collective
+                        responsibility? What does it mean to govern ourselves in consideration of pace, place, and
+                        perspective?
+                        <br><br>
+                        <hr><br>
+                    </p>
+                    <p>
+                        <b>ABOUT THE GARDEN</b><br><br>
 
+                        This particular plot of soil shown in the livestream is based on Tongva, Chumash, and Kizh land.
+                        Weather here is generally dry and sunny in the Spring, with daytime temperatures ranging from
+                        70-80° F and evenings at around 50-60° F. The garden's fate will change based on the living
+                        assemblage of instructions generated here each week, as well as the moderation of the artist.
+                        The project will run until mid-April or longer.
+                        <br><br>
+                    </p>
+                    <p>
+                        <b>ABOUT THE NETWORK</b><br>
+                        <br>
+                        You are currently on a Beaker browser, which runs the Hypercore protocol. Hypercore (hyper://)
+                        is a peer-to-peer network where data is held and exchanged between site visitor only. Instead of
+                        a central server such as Amazon Web Services, we each can have a direct role in keeping this
+                        site live.<br>
+                        <br>
+                        <b>Simply click on <img src="images/hyper-host-icon.png"></img> in the top right corner, then
+                            toggle "Host this Hyperdrive".</b> This makes you a node of the network of people hosting
+                        <i>Open Garden</i>. Now, whenever you are here, new visitors will be also be able to access the
+                        garden. The more people we have hosting together, the more likely the site will be accessible at
+                        any given time.
+                        <br><br>
+                        <hr><br>
+                    </p>
+                    <p>
+                        Open Garden is created by <a href="https://aliceyuanzhang.com/">Alice Yuan Zhang</a>, a
+                        <a href="https://culturehub.org">Culturehub</a>
+                        resident artist. She is an artist, educator, and immigrant exploring ecology, networks, and
+                        interspecies collaboration.
+                        <br>Web development by Tong Wu and Bhavik Singh
+                        <br>Sound by Alexander Babbitt
+                        <br>Thanks to friends at CultureHub, Surface Tension, and virtual care lab for your patient
+                        feedback and support.
+                        <br><br>
+                    </p>
+            </article>
         </div>
+
     </div>
     <script src="js/main.js"></script>
     </body>
