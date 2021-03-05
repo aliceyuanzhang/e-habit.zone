@@ -1,3 +1,6 @@
+body, html {
+  margin:0;
+}
 html { 
     background: url(../images/sky.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -11,8 +14,10 @@ a {
   border-bottom: white 1px dotted;
 }
 #main-div-wrapper {
-  width:100vw;
-  height:100vh;
+  /* width:100vw; hide */
+  /* height:100vh; hide */
+  max-height:100%;  /* added */
+  max-width:100%;  /* added */
   background-color: transparent;
   padding-left:10vw;
   padding-right:10vw;
@@ -149,6 +154,51 @@ visibility: hidden;
   margin-right:auto;
   border: 2px white solid;
   border-radius: 20px;
+}
+#pop-up-add-alt {
+  background: linear-gradient(#e9e3e300, #0f0f0f);
+  height:auto;
+  position:relative;
+  margin-top:-15vh;
+  overflow: auto;
+}
+
+#pop-up-alt-list {
+margin-left:1vw;
+display: flex;
+flex-direction: column;
+height: 15vh;
+justify-content: flex;
+overflow-x:hidden;
+overflow-y:scroll;
+
+}
+/*scrollbar styling*/
+#pop-up-alt-list::-webkit-scrollbar-track
+{
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+  background-color: transparent;
+}
+
+#pop-up-alt-list::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#pop-up-alt-list::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+}
+/*scrollbar styling*/
+
+#pop-up-alt-list li{
+  list-style: none;
+  font-family: Arial;
+  color:white;
+  font-size:18px;
+  line-height: 30px;
+  font-weight:400;
 }
 /*embedded etherpad*/
 .main-content-onFeed {
@@ -298,7 +348,7 @@ width:100%;
 #at-input {
   margin-top:5px;
   margin-bottom: 5px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 60px 10px 10px;
   border-radius: 14px;
 }
 .alt-text-input {

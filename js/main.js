@@ -48,6 +48,7 @@ function countdownClock_run() {
 countdownClock_run();
 setInterval(countdownClock_run, 10000);
 
+
 //___________________________________________
 //modify menu bottons
 //
@@ -58,7 +59,13 @@ var restButtons = document.getElementsByClassName("restButtons");
 var backButton = document.getElementById('choice-button-back');
 
 //alt-text-section
+var altTextContent = document.getElementById('pop-up-add-alt')
+var altTextBody = document.querySelector('#pop-up-alt-list');
+
 function expandAltText(e) {
+    altTextContent.classList.replace('dp-none', 'dp-block');
+    //adjust scroll position
+    altTextBody.scrollTop = altTextBody.scrollHeight;
     firstButtonForm.classList.replace('dp-none', 'dp-flex');
     firstButtonInput.classList.replace('alt-text-input', 'alt-text-input-visible');
     firstButtonIcon.classList.replace('dp-none', 'dp-block');
@@ -70,17 +77,6 @@ function expandAltText(e) {
         firstButtonInput.classList.add('expandWidth');
     }, 20)
 };
-
-var today = new Date();
-var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-var nowTime = today.getHours() + ':' + today.getMinutes();
-var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-function pushAltText() {
-    var inputContent = document.getElementById('at-input').value;
-    alert("[" + timeZone + "] " +
-        date + " " + nowTime + " : " + inputContent)
-}
 
 //add instruction section
 var etherPadContent = document.getElementById('pop-up-add-instruction');
@@ -123,6 +119,7 @@ function submitReminder() {
 //back button
 
 function backMain() {
+    altTextContent.classList.replace('dp-block', 'dp-none');
     //hide alt-text functions
     firstButtonInput.classList.remove('expandWidth');
     firstButtonForm.classList.replace('dp-flex', 'dp-none');

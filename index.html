@@ -9,10 +9,13 @@
     <meta name="author" content="Alice Yuan Zhang & CultureHub Inc.">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css" />
+    <!--font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-
+    <!-- Include firebase scripts from CDN      -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 </head>
 
 <body">
@@ -57,7 +60,9 @@
                     allowfullscreen></iframe>
             </div>
             <!--The Alt Text Section-->
-            <div id="pop-up-add-alt"></div>
+            <div id="pop-up-add-alt" class="dp-none">
+                <div id="pop-up-alt-list"></div>
+            </div>
             <!--The Instruction Section-->
             <div id="pop-up-add-instruction" class="main-content-onFeed dp-none">
                 <article>
@@ -87,11 +92,11 @@
             <div id="choice-list">
                 <div id="alt-text-div">
                     <button class="choice-button restButtons" onclick="expandAltText()">Add Notes</button>
-                    <form id="at-form" class="dp-none">
+                    <form id="at-form" class="dp-none" onsubmit="return false">
                         <input type="text" id="at-input" class="alt-text-input" name="fill in alt-text observation"
                             placeholder="Describe what you notice in this moment...">
-                        <article id="at-input-send" class="dp-none" onclick="pushAltText()">
-                            <span class="material-icons">
+                        <article type="submit" id="at-input-send" class="dp-none">
+                            <span class=" material-icons">
                                 send
                             </span>
                         </article>
@@ -153,11 +158,15 @@
                         <hr><br>
                     </p>
                     <p>
-                        Open Garden is created by <a href="https://aliceyuanzhang.com/">Alice Yuan Zhang</a>, a
-                        <a href="https://culturehub.org">Culturehub</a>
+                        Open Garden is created by <a href="https://aliceyuanzhang.com/" target="_blank"
+                            rel="noopener noreferrer">Alice Yuan Zhang</a>, a
+                        <a href="https://culturehub.org" target="_blank" rel="noopener noreferrer">Culturehub</a>
                         resident artist. She is an artist, educator, and immigrant exploring ecology, networks, and
                         interspecies collaboration.
-                        <br>Web development by Tong Wu and Bhavik Singh
+                        <br>Web development by <a href="https:tongwumedia.com" target="_blank"
+                            rel="noopener noreferrer">Tong Wu</a> and <a href="https://bhaviksingh.com/" target="_blank"
+                            rel="noopener noreferrer">Bhavik
+                            Singh</a>
                         <br>Sound by Alexander Babbitt
                         <br>Thanks to friends at CultureHub, Surface Tension, and virtual care lab for your patient
                         feedback and support.
@@ -167,6 +176,7 @@
         </div>
 
     </div>
+    <script src="js/fireBase.js"></script>
     <script src="js/main.js"></script>
     </body>
 
