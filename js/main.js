@@ -83,7 +83,7 @@ var etherPadContent = document.getElementById('pop-up-add-instruction');
 
 function showEtherpad() {
     //show add-instruction content
-    etherPadContent.classList.replace('dp-none', 'dp-block');
+    etherPadContent.classList.replace('dp-none', 'dp-flex');
     //hide all the other buttons and show "back"
     for (var i = 0; i < restButtons.length; i += 1) {
         restButtons[i].style.display = 'none';
@@ -112,22 +112,22 @@ function setReminder() {
     }, 20)
 }
 
-function submitReminder() {
-    alert("you submitted me!")
-}
-
 //back button
 
 function backMain() {
     altTextContent.classList.replace('dp-block', 'dp-none');
     //hide alt-text functions
     firstButtonInput.classList.remove('expandWidth');
-    firstButtonForm.classList.replace('dp-flex', 'dp-none');
+    firstButtonForm.classList.replace('dp-block', 'dp-none');
     firstButtonInput.classList.replace('alt-text-input-visible', 'alt-text-input');
     firstButtonIcon.classList.replace('dp-block', 'dp-none');
     //hide add-instruction content
-    etherPadContent.classList.replace('dp-block', 'dp-none');
+    etherPadContent.classList.replace('dp-flex', 'dp-none');
+    //hide reminder content
     reminderContent.classList.replace('dp-block', 'dp-none')
+
+    document.getElementById('reminder-send').textContent = 'send';
+    //bring back all the buttons
     for (var i = 0; i < restButtons.length; i += 1) {
         restButtons[i].style.display = 'block';
     }

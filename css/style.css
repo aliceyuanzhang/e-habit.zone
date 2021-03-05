@@ -134,26 +134,28 @@ visibility: hidden;
 }
 
 #main-section {
-  background-color:teal;
+  /*background-color:teal; */
+  background-color:transparent;
   margin-bottom:3vh;
   height:75vh;
+  border-radius: 20px;
+  border:2px white solid;
 }
 /*livestreaming*/
 #livestreaming-div {
   width:100%;
   height:100%;
   background-color: transparent;
-
+  border-radius: 20px;
 }
 
 #live-streaming-feed {
   display:block;
   width:100%;
-  height: 63vh;
+  height: 75vh;
   margin-left: auto;
   margin-right:auto;
-  border: 2px white solid;
-  border-radius: 20px;
+  border-radius:20px;
 }
 #pop-up-add-alt {
   background: linear-gradient(#e9e3e300, #0f0f0f);
@@ -161,6 +163,7 @@ visibility: hidden;
   position:relative;
   margin-top:-15vh;
   overflow: auto;
+  border-radius: 20px;
 }
 
 #pop-up-alt-list {
@@ -201,25 +204,30 @@ overflow-y:scroll;
   font-weight:400;
 }
 /*embedded etherpad*/
+#pop-up-add-instruction {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .main-content-onFeed {
-  width:60vw;
-  height:63vh;
-  position: absolute;
-  left: 50%;
-  top:48%;
-  transform: translate(-50%, -50%);
+  height:75vh;
+  position: relative;
   background-color: rgba(0,0,0,0.5);
-  border-color: white;
+  border-color: white 3px solid;
   border-radius: 20px;
+  margin-top:-75vh;
 }
 .main-content-onFeed p {
   margin-left: auto;
   margin-right: auto;
+  margin-top:0;
+  margin-bottom:1vh;
   width:90%;
   font-family: Arial, Helvetica, sans-serif;
   color:white;
   line-height:30px;
-  font-size:14px;
+  font-size:18px;
+  font-weight: bold;
   text-align: left;
 }
 #embedded-etherpad {
@@ -304,7 +312,7 @@ width:100%;
   }
 
 /*reminder submit buttons*/
-#reminder-content-wrapper span {
+#reminder-send {
   font-size:30px;
   line-height: 40px;
   padding-left: 5px;
@@ -313,7 +321,13 @@ width:100%;
   align-self: center;
   color:white;
   cursor: pointer;
+  transition:color 500ms ease-in-out
 }
+#reminder-send:hover {
+  color:orange;
+}
+
+
 /*Menu Section*/
 #choice-list {
   width:100%;
@@ -358,7 +372,7 @@ width:100%;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
   font-size:18px;
-  color:black;
+  color:white;
   width: 20vw;
   padding: 15px 5px;
   margin-right:0;
@@ -390,6 +404,11 @@ width:100%;
 }
 #at-input-send span {
   font-size: 30px !important;
+  transition: color 200ms ease-out;
+}
+
+#at-input-send span:hover{
+  color:cornflowerblue;
 }
 
 #choice-button-back {

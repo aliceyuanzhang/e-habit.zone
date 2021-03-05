@@ -13,7 +13,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database().ref();
 
-// ****** WRITE text to firebase
+// ****** WRITE alt-text input to firebase
 var today = new Date();
 var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var nowTime = today.getHours() + ':' + today.getMinutes();
@@ -45,7 +45,8 @@ document
 //         console.log("you just submitted")
 //     }
 // };
-// ****** READ text from firebase
+
+// ****** READ alt-text input from firebase
 //One time ready 
 db.once("value", snapshot => {
     document.getElementById("pop-up-alt-list").innerHTML = "";
@@ -73,3 +74,24 @@ function addChildToDom(value) {
     childNode.innerHTML = value;
     document.getElementById("pop-up-alt-list").appendChild(childNode);
 }
+
+
+function submitEmail() {
+    //Get text from DOM
+    let emailContainerElement = document.getElementById("email-setup");
+    // let emailToSubmit = "[" + timeZone + "] " + date + " " + nowTime + " : " + emailContainerElement.value;
+    // //Get key from firebase
+    // let newEmailKey = db.push().key;
+    // //Create dictionary with updates
+    // let email_Updates = {};
+    // email_Updates[newEmailKey] = emailToSubmit;
+    // //Push to repo
+    // db.update(email_Updates);
+    //update
+    alert("you submitted the email as: " + emailContainerElement.value);
+    document.getElementById('reminder-send').textContent = 'check_circle_outline';
+
+}
+document
+    .getElementById("reminder-send")
+    .addEventListener("click", () => submitEmail());

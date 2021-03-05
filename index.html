@@ -52,12 +52,14 @@
         <section class="main-div" id="main-section">
             <!--The Livestreaming Background-->
             <div id="livestreaming-div">
-                <!-- where livestream iframe is embedded
+                <!-- where livestream iframe is embedded -->
                 <img id="live-streaming-feed" src="http://76.93.33.31:8081/" frameborder="0" />
-                -->
+
+                <!--
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
+                -->
             </div>
             <!--The Alt Text Section-->
             <div id="pop-up-add-alt" class="dp-none">
@@ -83,7 +85,7 @@
                     <div id="reminder-email">
                         <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
                             placeholder="Email Address">
-                        <span class="material-icons" onclick="submitReminder()">arrow_right_alt</span>
+                        <span class="material-icons" id="reminder-send">send</span>
                     </div>
                 </form>
             </div>

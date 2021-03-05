@@ -1,6 +1,6 @@
 {
   "name": "opengarden",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An ecological remediation site for social media trauma.",
   "main": "index.js",
   "scripts": {
