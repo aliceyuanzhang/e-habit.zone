@@ -1,28 +1,9 @@
-//show and hide about-page
-
-function openAbout() {
-    document.getElementById('about-icon-wrapper').style.visibility = "hidden";
-    document.getElementById('pop-up-about').style.visibility = "visible";
-    document.getElementById('close-icon-wrapper').style.visibility = "visible";
-
-
-    document.getElementById('close-icon').style.display = "block";
-};
-
-function closeAbout() {
-    document.getElementById('about-icon-wrapper').style.visibility = "visible";
-    document.getElementById('pop-up-about').style.visibility = "hidden";
-    document.getElementById('close-icon-wrapper').style.visibility = "hidden";
-
-    document.getElementById('close-icon').style.display = "none";
-};
-
 function hideMain() {
-	document.getElementById('main-section').style.visibility = "hidden";
+    document.getElementById('main-section').style.visibility = "hidden";
 }
 
 
-window.onload=hideMain();
+window.onload = hideMain();
 
 
 //fetch countdown for run and close
@@ -76,7 +57,7 @@ var altTextContent = document.getElementById('pop-up-add-alt')
 var altTextBody = document.querySelector('#pop-up-alt-list');
 
 function expandAltText(e) {
-	document.getElementById('main-section').style.visibility = "visible";
+    document.getElementById('main-section').style.visibility = "visible";
     altTextContent.classList.replace('dp-none', 'dp-block');
     //adjust scroll position
     altTextBody.scrollTop = altTextBody.scrollHeight;
@@ -96,7 +77,7 @@ function expandAltText(e) {
 var etherPadContent = document.getElementById('pop-up-add-instruction');
 
 function showEtherpad() {
-	document.getElementById('main-section').style.visibility = "visible";
+    document.getElementById('main-section').style.visibility = "visible";
     //show add-instruction content
     etherPadContent.classList.replace('dp-none', 'dp-flex');
     //hide all the other buttons and show "back"
@@ -114,7 +95,7 @@ function showEtherpad() {
 var reminderContent = document.getElementById('pop-up-set-reminder');
 
 function setReminder() {
-	document.getElementById('main-section').style.visibility = "visible";
+    document.getElementById('main-section').style.visibility = "visible";
     //show reminder content
     reminderContent.classList.replace('dp-none', 'dp-block');
     //hide all the other buttons and show "back"
@@ -131,7 +112,7 @@ function setReminder() {
 //back button
 
 function backMain() {
-	document.getElementById('main-section').style.visibility = "hidden";
+    document.getElementById('main-section').style.visibility = "hidden";
     altTextContent.classList.replace('dp-block', 'dp-none');
     //hide alt-text functions
     firstButtonInput.classList.remove('expandWidth');
@@ -165,21 +146,42 @@ for (const heading of headings) {
 */
 //modify menu bottons
 //___________________________________________
-
-
+//show and hide about-page
 //music playing
-var musicButtonPlay = document.getElementById('music-on');
-var musicButtonPause = document.getElementById('music-off');
+var hyperdrive_tip = document.getElementById('hypertip-icon');
+var musicButtons = document.getElementById('music-icons')
+var musicButtonPlay = document.getElementById('music-on-wrapper');
+var musicButtonPause = document.getElementById('music-off-wrapper');
+
+function openAbout() {
+    document.getElementById('about-icon-wrapper').style.visibility = "hidden";
+    document.getElementById('pop-up-about').style.visibility = "visible";
+    document.getElementById('close-icon-wrapper').style.visibility = "visible";
+    hyperdrive_tip.style.visibility = "hidden";
+    musicButtons.style.visibility = "hidden";
+    document.getElementById('close-icon').style.display = "block";
+};
+
+function closeAbout() {
+    document.getElementById('about-icon-wrapper').style.visibility = "visible";
+    document.getElementById('pop-up-about').style.visibility = "hidden";
+    document.getElementById('close-icon-wrapper').style.visibility = "hidden";
+    hyperdrive_tip.style.visibility = "visible";
+    musicButtons.style.visibility = "visible";
+    document.getElementById('close-icon').style.display = "none";
+};
+
+
 
 function musicToggleOn(e) {
     console.log('come some music');
     musicButtonPlay.style.display = "none";
-    musicButtonPause.style.display = "block";
+    musicButtonPause.style.display = "flex";
 }
 
 function musicToggleOff(e) {
     console.log('Shhh..');
-    musicButtonPlay.style.display = "block";
+    musicButtonPlay.style.display = "flex";
     musicButtonPause.style.display = "none";
 }
 
@@ -200,5 +202,3 @@ function ShowAndHide_Network() {
         x.style.display = 'none';
     }
 }
-
-

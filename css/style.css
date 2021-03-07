@@ -97,65 +97,89 @@ a {
   color: #FFFFFF;
 }
 
-#middle-space {
-  width: 30vw;
+/* material icon*/
+.main-icon-lists {
+  margin-left:3vw;
+}
+.main-icon-item {
+  align-self:center;
+  margin-left:30px;
+  cursor: pointer;
+}
+/*hyperdrive button*/
+#host-hyperdrive-tip {
+  font-size:30px !important;
+  align-self: center;
+  cursor:pointer;
+  color:white;
 }
 
 /* music playing button*/
-#music-on, #music-off, #about-icon-wrapper, #close-icon-wrapper{
+#music-on-wrapper, #music-off-wrapper, #about-icon-wrapper, #close-icon-wrapper{
   cursor:pointer;
   display: flex;
-  align-items: right;
   vertical-align: middle;
-}
-
-#music-on, #music-off {
   color: white;
   font-size: 30px !important;
   width: auto;
 }
 
-#music-on {
- display:block;
-}
-#music-off {
-  display:none;
-}
 
-#about-icons {
+/*about button*/
+#music-icons,#about-icons {
   display: flex;
-  align-items: right;
-  vertical-align: middle;
 }
-
-/* material icon*/
-.about-icon {
+.music-icon, .about-icon {
   font-size:30px !important;
   align-self: center;
   cursor: pointer; 
   color:white;
-  width:32px;
-  margin-top: 50%;
-  margin: 12px;
+  width:30px;
   transition: width 500ms;
   z-index: 2;
 }
-.icon-text {
+.music-icon-text{
   opacity: 0;
-  position: absolute;
   color: white;
-  right: 2.8vw;
-  margin-top: 1vh;
   transition: opacity 500ms;
   font-family: Blocus;
   letter-spacing: 2px;
-  font-size:28px;
+  font-size:22px;
+  line-height:30px;
   z-index: 1;
+  margin-left: -68.3px;
 }
+.about-icon-text {
+  opacity: 0;
+  color: white;
+  transition: opacity 500ms;
+  font-family: Blocus;
+  letter-spacing: 2px;
+  font-size:22px;
+  line-height:30px;
+  z-index: 1;
+  margin-left: -35px;
+}
+
+.music-icon:hover {
+  width:100px;
+}
+.music-icon:hover + .music-icon-text {
+  opacity:1;
+}
+/*music off icon*/
+#music-off-wrapper {
+  display: none;
+  }
+  
+#close-icon {
+    display: none;
+  }
+  
 .about-icon:hover {
   width:70px;
  }
- .about-icon:hover + .icon-text {
+ .about-icon:hover + .about-icon-text {
   opacity: 1;
   }
 
@@ -170,6 +194,7 @@ z-index:6;
   display: none;
 }
 
+/*---------------------------------*/
 .main-div {
   display: block;
 }

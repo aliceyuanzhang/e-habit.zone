@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 //Setup firebase
 firebase.initializeApp(firebaseConfig);
-const db = firebase.database().ref();
+const db = firebase.database().ref("/alt-text-input");
 const reminderdb = firebase.database().ref("/email-for-reminder");
 const rtCursor = firebase.database().ref("/cursorPos");
 
