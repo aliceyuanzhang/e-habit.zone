@@ -1,16 +1,29 @@
 //show and hide about-page
+
 function openAbout() {
     document.getElementById('about-icon-wrapper').style.visibility = "hidden";
     document.getElementById('pop-up-about').style.visibility = "visible";
     document.getElementById('close-icon-wrapper').style.visibility = "visible";
 
+
+    document.getElementById('close-icon').style.display = "block";
 };
 
 function closeAbout() {
     document.getElementById('about-icon-wrapper').style.visibility = "visible";
     document.getElementById('pop-up-about').style.visibility = "hidden";
     document.getElementById('close-icon-wrapper').style.visibility = "hidden";
+
+    document.getElementById('close-icon').style.display = "none";
 };
+
+function hideMain() {
+	document.getElementById('main-section').style.visibility = "hidden";
+}
+
+
+window.onload=hideMain();
+
 
 //fetch countdown for run and close
 const endtime_run = 'March 21 2021 00:00:00 GMT-08:00';
@@ -63,6 +76,7 @@ var altTextContent = document.getElementById('pop-up-add-alt')
 var altTextBody = document.querySelector('#pop-up-alt-list');
 
 function expandAltText(e) {
+	document.getElementById('main-section').style.visibility = "visible";
     altTextContent.classList.replace('dp-none', 'dp-block');
     //adjust scroll position
     altTextBody.scrollTop = altTextBody.scrollHeight;
@@ -82,6 +96,7 @@ function expandAltText(e) {
 var etherPadContent = document.getElementById('pop-up-add-instruction');
 
 function showEtherpad() {
+	document.getElementById('main-section').style.visibility = "visible";
     //show add-instruction content
     etherPadContent.classList.replace('dp-none', 'dp-flex');
     //hide all the other buttons and show "back"
@@ -99,6 +114,7 @@ function showEtherpad() {
 var reminderContent = document.getElementById('pop-up-set-reminder');
 
 function setReminder() {
+	document.getElementById('main-section').style.visibility = "visible";
     //show reminder content
     reminderContent.classList.replace('dp-none', 'dp-block');
     //hide all the other buttons and show "back"
@@ -115,6 +131,7 @@ function setReminder() {
 //back button
 
 function backMain() {
+	document.getElementById('main-section').style.visibility = "hidden";
     altTextContent.classList.replace('dp-block', 'dp-none');
     //hide alt-text functions
     firstButtonInput.classList.remove('expandWidth');
@@ -136,7 +153,16 @@ function backMain() {
         backButton.classList.remove('choice-back-expandWidth', 'align-center');
     }, 20)
 }
+
+
 //
+/*const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+for (const heading of headings) {
+  heading.innerHTML = heading.innerHTML
+    .replace(/\bLOGO\b/g, 'L<span class="special-o">O</span>GO');
+}
+*/
 //modify menu bottons
 //___________________________________________
 
@@ -156,3 +182,23 @@ function musicToggleOff(e) {
     musicButtonPlay.style.display = "block";
     musicButtonPause.style.display = "none";
 }
+
+function ShowAndHide_Garden() {
+    var x = document.getElementById("about-garden");
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+function ShowAndHide_Network() {
+    var x = document.getElementById("about-network");
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+
