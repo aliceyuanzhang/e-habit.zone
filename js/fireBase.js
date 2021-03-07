@@ -12,6 +12,8 @@ const firebaseConfig = {
 //Setup firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database().ref();
+const reminderdb = firebase.database().ref("/email-for-reminder");
+const rtCursor = firebase.database().ref("/cursorPos");
 
 // ****** WRITE alt-text input to firebase
 var today = new Date();
@@ -75,18 +77,19 @@ function addChildToDom(value) {
     document.getElementById("pop-up-alt-list").appendChild(childNode);
 }
 
+//update email database
 
 function submitEmail() {
     //Get text from DOM
     let emailContainerElement = document.getElementById("email-setup");
-    // let emailToSubmit = "[" + timeZone + "] " + date + " " + nowTime + " : " + emailContainerElement.value;
-    // //Get key from firebase
-    // let newEmailKey = db.push().key;
+    let emailToSubmit = emailContainerElement.value + "/" + "[" + timeZone + "] " + date + " " + nowTime;
+    //Get key from firebase
+    let newEmailKey = reminderdb.push().key;
     // //Create dictionary with updates
-    // let email_Updates = {};
-    // email_Updates[newEmailKey] = emailToSubmit;
+    let email_Updates = {};
+    email_Updates[newEmailKey] = emailToSubmit;
     // //Push to repo
-    // db.update(email_Updates);
+    reminderdb.update(email_Updates);
     //update
     alert("you submitted the email as: " + emailContainerElement.value);
     document.getElementById('reminder-send').textContent = 'check_circle_outline';
@@ -95,3 +98,5 @@ function submitEmail() {
 document
     .getElementById("reminder-send")
     .addEventListener("click", () => submitEmail());
+
+//update cursor location
