@@ -13,7 +13,11 @@
   },
   "keywords": [],
   "author": "Alice Yuan Zhang & CultureHub Inc.",
-  "contributors": ["Tong Wu", "Bhavik Singh","Alexander Babbitt"],
+  "contributors": [
+    "Tong Wu",
+    "Bhavik Singh",
+    "Alexander Babbitt"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aliceyuanzhang/opengarden/issues"
@@ -22,5 +26,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "material-design-icons": "^3.0.1"
+  },
+  "devDependencies": {
+    "string-replace-loader": "^3.0.1",
+    "webpack": "^5.24.3"
   }
 }

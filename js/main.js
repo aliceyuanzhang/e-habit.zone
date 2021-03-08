@@ -1,10 +1,9 @@
 function hideMain() {
     document.getElementById('main-section').style.visibility = "hidden";
+
 }
 
-
 window.onload = hideMain();
-
 
 //fetch countdown for run and close
 const endtime_run = 'March 21 2021 00:00:00 GMT-08:00';
@@ -51,6 +50,23 @@ var firstButtonInput = document.getElementById('at-input');
 var firstButtonIcon = document.getElementById('at-input-send');
 var restButtons = document.getElementsByClassName("restButtons");
 var backButton = document.getElementById('choice-button-back');
+
+var hypertip = document.getElementById('hypertip');
+
+function showHypertip() {
+    hypertip.style.display = "block";
+}
+
+window.addEventListener('mousemove', moveHypertip);
+
+function moveHypertip() {
+    hypertip.style.top = event.clientY + 40 + "px";
+    hypertip.style.left = event.clientX -275 + "px";
+}
+
+function hideHypertip() {
+    hypertip.style.display = "none";
+}
 
 //alt-text-section
 var altTextContent = document.getElementById('pop-up-add-alt')
@@ -171,19 +187,33 @@ function closeAbout() {
     document.getElementById('close-icon').style.display = "none";
 };
 
-
-
 function musicToggleOn(e) {
     console.log('come some music');
     musicButtonPlay.style.display = "none";
     musicButtonPause.style.display = "flex";
+
+    document.getElementById("daySound").play();
+
+/*    if (typeof daySound.loop == 'boolean') {
+        daySound.loop = true;
+    } else {
+        daySound.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+    }*/
 }
+
 
 function musicToggleOff(e) {
     console.log('Shhh..');
     musicButtonPlay.style.display = "flex";
     musicButtonPause.style.display = "none";
+    document.getElementById("daySound").pause();
 }
+
+
+// interactive sections under about page
 
 function ShowAndHide_Garden() {
     var x = document.getElementById("about-garden");
@@ -202,3 +232,4 @@ function ShowAndHide_Network() {
         x.style.display = 'none';
     }
 }
+
