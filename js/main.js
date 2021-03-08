@@ -3,8 +3,11 @@ function hideMain() {
 
 }
 
-window.onload = hideMain();
+window.onload = function () {
+    hideMain();
+    document.querySelector('audio').pause();
 
+}
 //fetch countdown for run and close
 const endtime_run = 'March 21 2021 00:00:00 GMT-08:00';
 
@@ -61,7 +64,7 @@ window.addEventListener('mousemove', moveHypertip);
 
 function moveHypertip() {
     hypertip.style.top = event.clientY + 40 + "px";
-    hypertip.style.left = event.clientX -275 + "px";
+    hypertip.style.left = event.clientX - 275 + "px";
 }
 
 function hideHypertip() {
@@ -187,25 +190,25 @@ function closeAbout() {
     document.getElementById('close-icon').style.display = "none";
 };
 
-function musicToggleOn(e) {
+function musicToggleOff(e) {
     console.log('come some music');
     musicButtonPlay.style.display = "none";
     musicButtonPause.style.display = "flex";
 
     document.getElementById("daySound").play();
 
-/*    if (typeof daySound.loop == 'boolean') {
-        daySound.loop = true;
-    } else {
-        daySound.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-    }*/
+    /*    if (typeof daySound.loop == 'boolean') {
+            daySound.loop = true;
+        } else {
+            daySound.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+        }*/
 }
 
 
-function musicToggleOff(e) {
+function musicToggleOn(e) {
     console.log('Shhh..');
     musicButtonPlay.style.display = "flex";
     musicButtonPause.style.display = "none";
@@ -232,4 +235,3 @@ function ShowAndHide_Network() {
         x.style.display = 'none';
     }
 }
-

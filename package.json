@@ -1,8 +1,8 @@
 {
   "name": "opengarden",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "An ecological remediation site for social media trauma.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "http-server .",
     "test": "echo \"Error: no test specified\" && exit 1"

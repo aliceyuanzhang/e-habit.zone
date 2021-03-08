@@ -22,11 +22,14 @@
 <body>
     <div id="open-garden-title">OPEN GARDEN</div>
 
-    <div id="hypertip">You are on the distributed internet, where websites are hosted across our individual machines without an overarching entity like Amazon Web Services. Help keep <i>Open Garden</i> running by clicking the icon in your toolbar above, then "Host This Hyperdrive". Now whenever you keep this window open, you are making it accessible for newcomers.
-    <br><br>
-    <img src="images/hyper-preview.jpg">
-    <br><br>
-    Click to learn more...
+    <div id="hypertip">You are on the distributed internet, where websites are hosted across our individual machines
+        without an overarching entity like Amazon Web Services. Help keep <i>Open Garden</i> running by clicking the
+        icon in your toolbar above, then "Host This Hyperdrive". Now whenever you keep this window open, you are making
+        it accessible for newcomers.
+        <br><br>
+        <img src="images/hyper-preview.jpg">
+        <br><br>
+        Click to learn more...
     </div>
     <div id="main-div-wrapper">
         <section class="main-div" id="top-section">
@@ -35,23 +38,23 @@
             <!-- <span id="middle-space"></span>-->
             <div id="main-icon-lists" class="dp-flex">
                 <div id="hypertip-icon" class="main-icon-item" onmouseover="showHypertip()" onmouseout="hideHypertip()">
-                    
+
                     <span id="host-hyperdrive-tip" class="material-icons">
                         share
                     </span>
                 </div>
                 <div id="music-icons" class="main-icon-item">
-                    <section id="music-on-wrapper" class="dp-flex icon-wrapper" onclick="musicToggleOn()">
-                        <span class="material-icons music-icon">
-                            music_note
-                        </span>
-                        <i class="music-icon-text">sound on</i>
-                    </section>
-                    <section id="music-off-wrapper" class="dp-flex icon-wrapper" onclick="musicToggleOff()">
+                    <section id="music-on-wrapper" class="dp-flex icon-wrapper" onclick="musicToggleOff()">
                         <span class="material-icons music-icon">
                             music_off
                         </span>
                         <i class="music-icon-text">sound off</i>
+                    </section>
+                    <section id="music-off-wrapper" class="dp-flex icon-wrapper" onclick="musicToggleOn()">
+                        <span class="material-icons music-icon">
+                            music_note
+                        </span>
+                        <i class="music-icon-text">sound on</i>
                     </section>
                 </div>
                 <div id="about-icons" class="main-icon-item">
@@ -97,16 +100,25 @@
             </div>
             <!--The Instruction Section-->
             <div id="pop-up-add-instruction" class="main-content-onFeed dp-none">
-                <article>
-                    <p>This is an editable assemblage of requests for the garden. Use the space to experiment, negotiate, strategize, dream, compost. Requests left on the pad by Friday each week may be incorporated in that Sunday's performance at 10am PST.<br><br></p>
-                </article>
-                <iframe id="embedded-etherpad" name="embed_readwrite"
-                    src="https://pad.vvvvvvaria.org/open_garden"
-                    frameborder="0"></iframe>
+                <div id="pop-up-instruction-content">
+                    <article>
+                        <p>This is an editable assemblage of requests for the garden. Use the space to experiment,
+                            negotiate, strategize, dream, compost. Requests left on the pad by Friday each week may be
+                            incorporated in that Sunday's performance at 10am PST.<br><br></p>
+                    </article>
+                    <!---
+                <iframe name="embed_readwrite"
+                    src="https://pad.vvvvvvaria.org/open_garden?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+                    width="100%" height="600" frameborder="0"></iframe>
+                -->
+                    <iframe name="embed_readwrite" id="embedded-etherpad"
+                        src="https://complicatingthecomputermouse.net:9001/p/Alice_Yuan?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+                        frameborder="0"></iframe>
+                </div>
             </div>
             <!--The Set Reminder Section-->
             <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
-                <form id="reminder-content-wrapper">
+                <form id="reminder-content-wrapper" onsubmit="return false">
                     <h2>Send a reminder to check back each week:</h2>
                     <div id="reminder-email">
                         <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
@@ -143,103 +155,112 @@
                 <p>
                     In digital marketing, Facebook and Google are known as walled gardens. By aggressively centralizing
                     and guarding vast amounts of audience data behind closed doors, they secure the bulk of the
-                    attention economy. The valued commodity behind these walls is us <span class="q-mark">—</span> habituated, surveilled, weary-eyed.
+                    attention economy. The valued commodity behind these walls is us <span class="q-mark">—</span>
+                    habituated, surveilled, weary-eyed.
                 </p>
                 <p>
                     <i>Open Garden</i> is a durational participatory performance by artist Alice Yuan Zhang,
                     experimenting with the potentiality of our online attention and the labor of digital sovereignty. A
                     garden plot is livestreamed by solar power to the distributed web. Instructions are freely
-                    negotiated by site visitors throughout each week, then carried out by the artist. Over an initial course of a month, <i>Open Garden</i> acts as substrate for active reflection.
-                <p>
-                    Can we begin to decommodify our attention and reclaim digital agency<span class="q-mark">?</span> Where might we direct that
-                    attention, and what grows from it<span class="q-mark">?</span> How do we negotiate individual instincts with collective
-                    responsibility<span class="q-mark">?</span> What does it mean to govern ourselves in consideration of pace, place, and
-                    perspective<span class="q-mark">?</span>
-                    <br><br><br>
-                    <hr><br>
-                </p>
-                <div class="row" onclick="ShowAndHide_Garden()"
-                    onmouseover="document.getElementById('bark').src='images/bark.gif'"
-                    onmouseout="document.getElementById('bark').src='images/bark.png'">
-                    <div class="column">
-                        <img id='bark' src="images/bark.png">
-                        <br>
-                        <br>
-                    </div>
-                    <div class="column">
-                        <br><br><br>
-                        <b>about the garden</b></div>
-                </div>
-
-                <div id="about-garden" style="display:none">
+                    negotiated by site visitors throughout each week, then carried out by the artist. Over an initial
+                    course of a month, <i>Open Garden</i> acts as substrate for active reflection.
                     <p>
-                        This particular plot is on unceded Tongva, Chumash, and Kizh land. Weather here is generally dry and sunny in the Spring, with daytime temperatures ranging from 70-80° F and evenings at around 50-60° F. The garden's fate will change based on the living assemblage of instructions generated here each week, as well as the moderation of the artist. The initial course of this project will run for a month or longer.
+                        Can we begin to decommodify our attention and reclaim digital agency<span
+                            class="q-mark">?</span> Where might we direct that
+                        attention, and what grows from it<span class="q-mark">?</span> How do we negotiate individual
+                        instincts with collective
+                        responsibility<span class="q-mark">?</span> What does it mean to govern ourselves in
+                        consideration of pace, place, and
+                        perspective<span class="q-mark">?</span>
+                        <br><br><br>
+                        <hr><br>
+                    </p>
+                    <div class="row" onclick="ShowAndHide_Garden()"
+                        onmouseover="document.getElementById('bark').src='images/bark.gif'"
+                        onmouseout="document.getElementById('bark').src='images/bark.png'">
+                        <div class="column">
+                            <img id='bark' src="images/bark.png">
+                            <br>
+                            <br>
+                        </div>
+                        <div class="column">
+                            <br><br><br>
+                            <b>about the garden</b></div>
+                    </div>
 
+                    <div id="about-garden" style="display:none">
+                        <p>
+                            This particular plot is on unceded Tongva, Chumash, and Kizh land. Weather here is generally
+                            dry and sunny in the Spring, with daytime temperatures ranging from 70-80° F and evenings at
+                            around 50-60° F. The garden's fate will change based on the living assemblage of
+                            instructions generated here each week, as well as the moderation of the artist. The initial
+                            course of this project will run for a month or longer.
+
+                            <br><br><br>
+                        </p>
+                    </div>
+
+                    <br>
+                    <hr><br><br>
+
+                    <div class="row" onclick="ShowAndHide_Network()"
+                        onmouseover="document.getElementById('mushroom').src='images/mushroom.gif'"
+                        onmouseout="document.getElementById('mushroom').src='images/mushroom.png'">
+                        <div class="column">
+                            <img id='mushroom' src="images/mushroom.png"></img>
+                        </div>
+                        <div class="column">
+                            <br><br><br>
+                            <b>about the network</b></div>
+                    </div>
+
+                    <div id="about-network" style="display:none">
+                        <p>
+                            You are currently on the Beaker browser, which runs the Hypercore protocol. Hypercore
+                            (hyper://)
+                            is a peer-to-peer network where data is held and exchanged between site visitor only.
+                            Instead of
+                            a central server such as Amazon Web Services, we each can have a direct role in keeping this
+                            site live.<br>
+                            <br>
+
+                            <b>Simply click on <img src="images/hyper-host-icon.png" style="width: 35px"></img> in the
+                                top right corner, then
+                                toggle "Host this Hyperdrive".</b> This makes you a node of the network of people
+                            hosting
+                            <i>Open Garden</i>. Now, whenever you are here, new visitors will be also be able to access
+                            the
+                            garden. The more people we have hosting together, the more likely the site will be
+                            accessible at
+                            any given time.
+                            <br><br><br></p>
+                    </div>
+
+                    <hr><br>
+
+                    <p>
+                        <i>Open Garden</i> is designed and performed by <a href="https://culturehub.org" target="_blank"
+                            rel="noopener noreferrer">CultureHub</a> resident artist <a
+                            href="https://aliceyuanzhang.com/" target="_blank" rel="noopener noreferrer">Alice Yuan
+                            Zhang</a> for <a href="https://www.culturehub.org/re-fest-2021">Re-Fest 2021:
+                            "Re-Circulation".</a> Alice Yuan Zhang (she/her) is a first-generation Chinese-American
+                        artist, educator, and community organizer, using new media technology to facilitate
+                        collaborative engagement around ecology, networks, and home.
+                        <br>
+                        <br>Web development in collaboration with <a href="https://tongwumedia.com" target="_blank"
+                            rel="noopener noreferrer">Tong Wu</a> and <a href="https://bhaviksingh.com/" target="_blank"
+                            rel="noopener noreferrer">Bhavik
+                            Singh</a>.
+                        <br>
+                        <br>Sound by <a href="https://lagsongs.bandcamp.com" target="_blank"
+                            rel="noopener noreferrer">Alexander Babbitt</a>.
+                        <br>
+                        <br>
+                        Many thanks to friends at Surface Tension, <a href="https://virtualcarelab.com/" target="_blank"
+                            rel="noopener noreferrer">virtual care lab</a>, and housemates Kylie, Alex, and Terry for
+                        your knowledge, feedback, and generous support.
                         <br><br><br>
                     </p>
-                </div>
-
-                <br>
-                <hr><br><br>
-
-                <div class="row" onclick="ShowAndHide_Network()"
-                    onmouseover="document.getElementById('mushroom').src='images/mushroom.gif'"
-                    onmouseout="document.getElementById('mushroom').src='images/mushroom.png'">
-                    <div class="column">
-                        <img id='mushroom' src="images/mushroom.png"></img>
-                    </div>
-                    <div class="column">
-                        <br><br><br>
-                        <b>about the network</b></div>
-                </div>
-
-                <div id="about-network" style="display:none">
-                    <p>
-                        You are currently on the Beaker browser, which runs the Hypercore protocol. Hypercore
-                        (hyper://)
-                        is a peer-to-peer network where data is held and exchanged between site visitor only.
-                        Instead of
-                        a central server such as Amazon Web Services, we each can have a direct role in keeping this
-                        site live.<br>
-                        <br>
-
-                        <b>Simply click on <img src="images/hyper-host-icon.png" style="width: 35px"></img> in the
-                            top right corner, then
-                            toggle "Host this Hyperdrive".</b> This makes you a node of the network of people
-                        hosting
-                        <i>Open Garden</i>. Now, whenever you are here, new visitors will be also be able to access
-                        the
-                        garden. The more people we have hosting together, the more likely the site will be
-                        accessible at
-                        any given time.
-                        <br><br><br></p>
-                </div>
-
-                <hr><br>
-
-                <p>
-                    <i>Open Garden</i> is designed and performed by <a href="https://culturehub.org" target="_blank"
-                        rel="noopener noreferrer">CultureHub</a> resident artist <a
-                        href="https://aliceyuanzhang.com/" target="_blank" rel="noopener noreferrer">Alice Yuan
-                        Zhang</a> for <a href="https://www.culturehub.org/re-fest-2021">Re-Fest 2021:
-                        "Re-Circulation".</a> Alice Yuan Zhang (she/her) is a first-generation Chinese-American
-                    artist, educator, and community organizer, using new media technology to facilitate
-                    collaborative engagement around ecology, networks, and home.
-                    <br>
-                    <br>Web development in collaboration with <a href="https://tongwumedia.com" target="_blank"
-                        rel="noopener noreferrer">Tong Wu</a> and <a href="https://bhaviksingh.com/" target="_blank"
-                        rel="noopener noreferrer">Bhavik
-                        Singh</a>.
-                    <br>
-                    <br>Sound by <a href="https://lagsongs.bandcamp.com" target="_blank"
-                        rel="noopener noreferrer">Alexander Babbitt</a>.
-                    <br>
-                    <br>
-                    Many thanks to friends at Surface Tension, <a href="https://virtualcarelab.com/" target="_blank"
-                        rel="noopener noreferrer">virtual care lab</a>, and housemates Kylie, Alex, and Terry for
-                    your knowledge, feedback, and generous support.
-                    <br><br><br>
-                </p>
             </article>
         </div>
 
