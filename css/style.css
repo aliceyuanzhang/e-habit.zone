@@ -30,11 +30,6 @@ a {
   src:url("../fonts/Steps-Mono-Thin.otf");
 }
 
-@font-face {
-  font-family: 'Arial';
-  unicode-range: U+003F;
-}
-
 #main-div-wrapper {
   /* width:100vw; hide */
   /* height:100vh; hide */
@@ -104,14 +99,30 @@ a {
 .main-icon-item {
   align-self:center;
   margin-left:30px;
-  cursor: pointer;
 }
 /*hyperdrive button*/
 #host-hyperdrive-tip {
   font-size:30px !important;
   align-self: center;
-  cursor:pointer;
   color:white;
+  z-index:10;
+
+  cursor: pointer;
+}
+
+#hypertip {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+  width: 350px;
+  height: 340px;
+  padding: 15 15 15 20;
+  position: absolute;
+  display: none;
+  font-family: Steps Mono Thin;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  color: white;
 }
 
 /* music playing button*/
@@ -126,7 +137,7 @@ a {
 
 
 /*about button*/
-#music-icons,#about-icons {
+#hypertip-icon, #music-icons,#about-icons {
   display: flex;
 }
 .music-icon, .about-icon {
@@ -523,6 +534,12 @@ z-index:6;
   letter-spacing: 1px;
   font-family: Steps Mono Thin;
   color:white;
+}
+
+.q-mark {
+  font-family: Garamond;
+  font-weight: 100px;
+  font-size: 20px;
 }
 
 .row {
