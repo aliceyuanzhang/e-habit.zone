@@ -190,29 +190,55 @@ function closeAbout() {
     document.getElementById('close-icon').style.display = "none";
 };
 
+
+//fetch sunset and sunrise time for LA
+var sunset = SunriseSunsetJS.getSunset(34.128794, -118.306022)
+var sunrise = SunriseSunsetJS.getSunrise(34.128794, -118.306022)
+
+var audio_day = new Audio('sound/day.mp3');
+audio_day.addEventListener('ended', function () {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
+var audio_night = new Audio('sound/silence.mp3');
+audio_night.addEventListener('ended', function () {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
+
 function musicToggleOff(e) {
-    console.log('come some music');
+    //console.log('come some music');
     musicButtonPlay.style.display = "none";
     musicButtonPause.style.display = "flex";
 
-    document.getElementById("daySound").play();
+    if (Date.parse(today) >= Date.parse(sunrise)) { //now is after today's sunrise
+        if (Date.parse(today) < Date.parse(sunset)) { // now is before today's sunset 
+            audio_day.play();
+            console.log("1")
+        } else { //now is after today's sunset 
+            audio_night.play();
+            console.log("2")
+        }
+    } else {
+        if (Date.parse(today) < Date.parse(sunset)) { //now is before today's sunset
+            audio_day.play();
+            console.log("3")
+        } else { //now is after today's sunset 
+            audio_night.play();
+            console.log("4")
+        }
+    }
 
-    /*    if (typeof daySound.loop == 'boolean') {
-            daySound.loop = true;
-        } else {
-            daySound.addEventListener('ended', function() {
-                this.currentTime = 0;
-                this.play();
-            }, false);
-        }*/
 }
 
-
 function musicToggleOn(e) {
-    console.log('Shhh..');
+    //console.log('Shhh..');
     musicButtonPlay.style.display = "flex";
     musicButtonPause.style.display = "none";
-    document.getElementById("daySound").pause();
+    audio_day.pause();
+    audio_night.pause();
 }
 
 
