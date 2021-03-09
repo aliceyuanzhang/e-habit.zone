@@ -133,6 +133,7 @@ a {
   letter-spacing: 1px;
   line-height: 20px;
   color: white;
+  z-index:4;
 }
 
 /* music playing button*/

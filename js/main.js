@@ -128,7 +128,6 @@ function setReminder() {
 }
 
 //back button
-
 function backMain() {
     document.getElementById('main-section').style.visibility = "hidden";
     altTextContent.classList.replace('dp-block', 'dp-none');
@@ -152,40 +151,39 @@ function backMain() {
         backButton.classList.remove('choice-back-expandWidth', 'align-center');
     }, 20)
 }
-
-
-//
-/*const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-
-for (const heading of headings) {
-  heading.innerHTML = heading.innerHTML
-    .replace(/\bLOGO\b/g, 'L<span class="special-o">O</span>GO');
-}
-*/
-//modify menu bottons
 //___________________________________________
 //show and hide about-page
-//music playing
-var hyperdrive_tip = document.getElementById('hypertip-icon');
+
+var about_openButton = document.getElementById('about-icon-wrapper');
+var about_fullPage = document.getElementById('pop-up-about');
+var about_closeButton = document.getElementById('close-icon-wrapper');
+var hyperdriveButton = document.getElementById('hypertip-icon');
 var musicButtons = document.getElementById('music-icons')
 var musicButtonPlay = document.getElementById('music-on-wrapper');
 var musicButtonPause = document.getElementById('music-off-wrapper');
+var donateButton = document.getElementById('donation-icon');
 
 function openAbout() {
-    document.getElementById('about-icon-wrapper').style.visibility = "hidden";
-    document.getElementById('pop-up-about').style.visibility = "visible";
-    document.getElementById('close-icon-wrapper').style.visibility = "visible";
-    hyperdrive_tip.style.visibility = "hidden";
+    about_openButton.style.visibility = "hidden";
+    about_fullPage.style.visibility = "visible";
+    about_closeButton.style.visibility = "visible";
+    //modify icon visibility
+    hyperdriveButton.style.visibility = "hidden";
     musicButtons.style.visibility = "hidden";
+    donateButton.style.visibility = "hidden";
+    //show close icon for the about page
     document.getElementById('close-icon').style.display = "block";
 };
 
 function closeAbout() {
-    document.getElementById('about-icon-wrapper').style.visibility = "visible";
-    document.getElementById('pop-up-about').style.visibility = "hidden";
-    document.getElementById('close-icon-wrapper').style.visibility = "hidden";
-    hyperdrive_tip.style.visibility = "visible";
+    about_openButton.style.visibility = "visible";
+    about_fullPage.style.visibility = "hidden";
+    about_closeButton.style.visibility = "hidden";
+    //modify icon visibility
+    hyperdriveButton.style.visibility = "visible";
     musicButtons.style.visibility = "visible";
+    donateButton.style.visibility = "visible";
+    //hide close icon for the about page
     document.getElementById('close-icon').style.display = "none";
 };
 
@@ -193,6 +191,9 @@ function closeAbout() {
 //fetch sunset and sunrise time for LA
 var sunset = SunriseSunsetJS.getSunset(34.128794, -118.306022)
 var sunrise = SunriseSunsetJS.getSunrise(34.128794, -118.306022)
+var sunset_time = Date.parse(sunset);
+var sunrise_time = Date.parse(sunrise);
+var now_time = Date.parse(today);
 
 var audio_day = new Audio('sound/day.mp3');
 audio_day.addEventListener('ended', function () {
@@ -206,30 +207,24 @@ audio_night.addEventListener('ended', function () {
     this.play();
 }, false);
 
-
+//control music on/off
 function musicToggleOff(e) {
     //console.log('come some music');
     musicButtonPlay.style.display = "none";
     musicButtonPause.style.display = "flex";
 
-    if (Date.parse(today) >= Date.parse(sunrise)) { //now is after today's sunrise
-        if (Date.parse(today) < Date.parse(sunset)) { // now is before today's sunset 
-            audio_day.play();
-            console.log("1")
-        } else { //now is after today's sunset 
+    if (sunrise_time >= sunset_time) { // after yesterday's sunset but before today's sunrise
+        if (Date.parse(today) < Date.parse(sunrise)) {
             audio_night.play();
-            console.log("2")
-        }
-    } else {
-        if (Date.parse(today) < Date.parse(sunset)) { //now is before today's sunset
+            console.log("1: sunset yesterday < now < sunrise today: play night_sound");
+        } else { //after today's sunrise but before today's sunset
             audio_day.play();
-            console.log("3")
-        } else { //now is after today's sunset 
-            audio_night.play();
-            console.log("4")
+            console.log("2: sunrise today < now < sunset today: play day_sound");
         }
+    } else { //sunrise time < sun_set time
+        audio_night.play();
+        console.log("3: sunset today < now < sunrise tomorrow: play night_sound");
     }
-
 }
 
 function musicToggleOn(e) {
@@ -242,7 +237,6 @@ function musicToggleOn(e) {
 
 
 // interactive sections under about page
-
 function ShowAndHide_Garden() {
     var x = document.getElementById("about-garden");
     if (x.style.display == 'none') {
