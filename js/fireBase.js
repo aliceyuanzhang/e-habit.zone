@@ -20,12 +20,15 @@ var today = new Date();
 var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var nowTime = today.getHours() + ':' + today.getMinutes();
 var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+var nowTimeTag = today.toLocaleString('sv', {
+    timeZoneName: 'short'
+});
 
 function submitText() {
     //Get text from DOM
     let textContainerElement = document.getElementById("at-input");
-    let textToSubmit = "[" + timeZone + "] " + date + " " + nowTime + " : " + textContainerElement.value;
-    //Get key from firebase
+    let textToSubmit = "[" + nowTimeTag + "] " + textContainerElement.value;
+    //Get key from firebase4
     let newKey = db.push().key;
     //Create dictionary with updates
     let updates = {};
