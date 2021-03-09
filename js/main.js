@@ -225,7 +225,7 @@ function musicToggleOff(e) {
             audio_day.play();
             console.log("3")
         } else { //now is after today's sunset 
-            audio_day.play();
+            audio_night.play();
             console.log("4")
         }
     }
