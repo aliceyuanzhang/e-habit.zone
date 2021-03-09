@@ -78,11 +78,18 @@ function addChildToDom(value) {
 }
 
 //update email database
-
 function submitEmail() {
     //Get text from DOM
+
+    var check_wr = document.getElementById('check-wr').checked;
+    var check_pu = document.getElementById('check-pu').checked;
     let emailContainerElement = document.getElementById("email-setup");
-    let emailToSubmit = emailContainerElement.value + "/" + "[" + timeZone + "] " + date + " " + nowTime;
+    let emailToSubmit = {
+        "date": date + " " + nowTime,
+        "weekly reminder": check_wr,
+        "project update": check_pu,
+        "email": emailContainerElement.value
+    }
     //Get key from firebase
     let newEmailKey = reminderdb.push().key;
     // //Create dictionary with updates
@@ -91,7 +98,7 @@ function submitEmail() {
     // //Push to repo
     reminderdb.update(email_Updates);
     //update
-    alert("you submitted the email as: " + emailContainerElement.value);
+    //alert("you submitted the email as: " + emailContainerElement.value);
     document.getElementById('reminder-send').textContent = 'check_circle_outline';
 
 }

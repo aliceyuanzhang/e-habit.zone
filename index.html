@@ -37,6 +37,11 @@
             <div id="countdownClock_run" class="cd-time">Instructions will run in...</div>
             <!-- <span id="middle-space"></span>-->
             <div id="main-icon-lists" class="dp-flex">
+                <div id="donation-icon" class="main-icon-item">
+                    <span id="donate-money" class="material-icons">
+                        volunteer_activism
+                    </span>
+                </div>
                 <div id="hypertip-icon" class="main-icon-item" onmouseover="showHypertip()" onmouseout="hideHypertip()">
 
                     <span id="host-hyperdrive-tip" class="material-icons">
@@ -119,7 +124,19 @@
             <!--The Set Reminder Section-->
             <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
                 <form id="reminder-content-wrapper" onsubmit="return false">
-                    <h2>Send a reminder to check back each week:</h2>
+                    <h2>Sign up to check back each week of our:</h2>
+                    <div class="reminder-checkbox-div">
+                        <div class="dp-flex">
+                            <input type="checkbox" name="weekly-reminder" value="weekly reminder"
+                                class="reminder-checkbox" id="check-wr" checked>
+                            <label for="weekly-reminder" class="reminder-checkbox-text"> weekly reminders</label><br>
+                        </div>
+                        <div class="dp-flex">
+                            <input type="checkbox" name="project-update" value="project-update"
+                                class="reminder-checkbox" id="check-pu" checked>
+                            <label for="project-update" class="reminder-checkbox-text">project update</label>
+                        </div>
+                    </div>
                     <div id="reminder-email">
                         <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
                             placeholder="Email Address">
