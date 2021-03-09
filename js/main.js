@@ -5,7 +5,6 @@ function hideMain() {
 
 window.onload = function () {
     hideMain();
-    document.querySelector('audio').pause();
 
 }
 //fetch countdown for run and close
@@ -226,7 +225,7 @@ function musicToggleOff(e) {
             audio_day.play();
             console.log("3")
         } else { //now is after today's sunset 
-            audio_night.play();
+            audio_day.play();
             console.log("4")
         }
     }
