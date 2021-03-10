@@ -212,6 +212,11 @@ audio_night.addEventListener('ended', function () {
     this.play();
 }, false);
 
+var printSunTime = {
+    "sunrise": sunrise,
+    "sunset": sunset
+}
+
 //control music on/off
 function musicToggleOff(e) {
     //console.log('come some music');
@@ -222,13 +227,16 @@ function musicToggleOff(e) {
         if (Date.parse(today) < Date.parse(sunrise)) {
             audio_night.play();
             console.log("1: sunset yesterday < now < sunrise today: play night_sound");
+            console.log(printSunTime);
         } else { //after today's sunrise but before today's sunset
             audio_day.play();
             console.log("2: sunrise today < now < sunset today: play day_sound");
+            console.log(printSunTime);
         }
     } else { //sunrise time < sun_set time
         audio_night.play();
         console.log("3: sunset today < now < sunrise tomorrow: play night_sound");
+        console.log(printSunTime);
     }
 }
 
