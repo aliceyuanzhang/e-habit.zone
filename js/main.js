@@ -54,12 +54,11 @@ var restButtons = document.getElementsByClassName("restButtons");
 var backButton = document.getElementById('choice-button-back');
 
 var hypertip = document.getElementById('hypertip');
+var hypertip_icon = document.getElementById('hypertip-icon')
 
 function showHypertip() {
     hypertip.style.display = "block";
 }
-
-window.addEventListener('mousemove', moveHypertip);
 
 function moveHypertip() {
     hypertip.style.top = event.clientY + 40 + "px";
@@ -69,6 +68,12 @@ function moveHypertip() {
 function hideHypertip() {
     hypertip.style.display = "none";
 }
+
+
+hypertip_icon.addEventListener('mouseenter', showHypertip);
+hypertip_icon.addEventListener('mouseleave', hideHypertip);
+window.addEventListener('mousemove', moveHypertip);
+
 
 //alt-text-section
 var altTextContent = document.getElementById('pop-up-add-alt')
@@ -189,8 +194,8 @@ function closeAbout() {
 
 
 //fetch sunset and sunrise time for LA
-var sunset = SunriseSunsetJS.getSunset(34.128794, -118.306022)
-var sunrise = SunriseSunsetJS.getSunrise(34.128794, -118.306022)
+var sunset = SunriseSunsetJS.getSunset(40.730610, -73.935242, new Date());
+var sunrise = SunriseSunsetJS.getSunrise(40.730610, -73.935242, new Date());
 var sunset_time = Date.parse(sunset);
 var sunrise_time = Date.parse(sunrise);
 var now_time = Date.parse(today);
