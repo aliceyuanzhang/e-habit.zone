@@ -246,20 +246,27 @@ function musicToggleOff(e) {
     musicButtonPlay.style.display = "none";
     musicButtonPause.style.display = "flex";
 
+
     if (sunrise_time >= sunset_time) { // after yesterday's sunset but before today's sunrise
         if (Date.parse(today) < Date.parse(sunrise)) {
             audio_night.play();
             console.log("1: sunset yesterday < now < sunrise today: play night_sound");
             console.log(printSunTime);
-        } else { //after today's sunrise but before today's sunset
+        } else { //today's sunrise < now < today's sunset
             audio_day.play();
             console.log("2: sunrise today < now < sunset today: play day_sound");
             console.log(printSunTime);
         }
-    } else { //sunrise time < sun_set time
-        audio_night.play();
-        console.log("3: sunset today < now < sunrise tomorrow: play night_sound");
-        console.log(printSunTime);
+    } else { // sunrise time < sunset time
+        if (Date.parse(today) < Date.parse(sunset)) { // today's sunrise < now < today's sunset 
+            audio_day.play();
+            console.log("3: today's sunrise < now < today's sunset: play day_sound");
+            console.log(printSunTime);
+        } else { // today's sunset < now < tomorrow's sunrise
+            audio_night.play();
+            console.log("4: today's sunset < now < tomorrow's sunrise: play night_sound");
+            console.log(printSunTime);
+        }
     }
 }
 
