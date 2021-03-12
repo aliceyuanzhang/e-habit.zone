@@ -23,10 +23,10 @@
 <body>
     <div id="open-garden-title">OPEN GARDEN</div>
 
-    <div id="hypertip">You are on the distributed internet, where websites are hosted across our individual machines
-        without an overarching entity like Amazon Web Services. Help keep <i>Open Garden</i> running by clicking the
-        icon in your toolbar above, then "Host This Hyperdrive". Now whenever you keep this window open, you are making
-        it accessible for newcomers.
+    <div id="funds">This project is made possible through reciprocity. Funds for seeds, labor, material, and rent are welcome and appreciated: <br><br>
+    <b>Venmo</b> @aliceyuanzhang or click through to Paypal. </div>
+
+    <div id="hypertip">This website is hosted across individual computers without an central server like Amazon Web Services. We invite you to be part of the network of folks keeping <i>Open Garden</i> running by clicking the icon in your toolbar above, then "Host This Hyperdrive". Now whenever you are here, you are keeping the site live for newcomers.
         <br><br>
         <img src="images/hyper-preview.jpg">
         <br><br>
@@ -35,13 +35,15 @@
     <div id="main-div-wrapper">
         <section class="main-div" id="top-section">
 
-            <div id="countdownClock_run" class="cd-time">Instructions will run in...</div>
+            <div id="countdownClock_run" class="cd-time">Instructions running now!</div>
             <!-- <span id="middle-space"></span>-->
             <div id="main-icon-lists" class="dp-flex">
+                
                 <div id="donation-icon" class="main-icon-item">
-                    <span id="donate-money" class="material-icons">
-                        volunteer_activism
-                    </span>
+                    <a href="https://paypal.me/aliceyuanzhang" target="_blank"
+                            rel="noopener noreferrer"><span id="donate" class="material-icons">
+                        bolt
+                    </span></a>
                 </div>
                 <div id="hypertip-icon" class="main-icon-item">
 
@@ -52,13 +54,13 @@
                 <div id="music-icons" class="main-icon-item">
                     <section id="music-on-wrapper" class="dp-flex icon-wrapper" onclick="musicToggleOff()">
                         <span class="material-icons music-icon">
-                            music_off
+                            volume_off
                         </span>
                         <i class="music-icon-text">sound off</i>
                     </section>
                     <section id="music-off-wrapper" class="dp-flex icon-wrapper" onclick="musicToggleOn()">
                         <span class="material-icons music-icon">
-                            music_note
+                            volume_up
                         </span>
                         <i class="music-icon-text">sound on</i>
                     </section>
@@ -104,8 +106,7 @@
                 <div id="pop-up-instruction-content">
                     <article>
                         <p>This is an editable assemblage of requests for the garden. Use the space to experiment,
-                            negotiate, strategize, dream, compost. Requests left on the pad by Friday each week may be
-                            incorporated in that Sunday's performance at 10am PST.<br><br></p>
+                            negotiate, strategize, dream, compost. Click on the Time Slider <img src="images/time-slider-icon.png"> to see past changes. Instructions left on the pad may be carried out the next Sunday at 10:00am PST. <br></p>
                     </article>
                     <!---
                 <iframe name="embed_readwrite"
@@ -113,30 +114,31 @@
                     width="100%" height="600" frameborder="0"></iframe>
                 -->
                     <iframe name="embed_readwrite" id="embedded-etherpad"
-                        src="https://complicatingthecomputermouse.net:9001/p/Alice_Yuan?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+                        src="https://pad.vvvvvvaria.org/open_garden?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
                         frameborder="0"></iframe>
                 </div>
             </div>
             <!--The Set Reminder Section-->
             <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
                 <form id="reminder-content-wrapper" onsubmit="return false">
-                    <h2>Sign up to check back each week of our:</h2>
                     <div class="reminder-checkbox-div">
+                        <h2 style="text-align:left"><i>"What you pay attention to, grows."</i><br><br>
+                    Stay tuned with Open Garden:</h2>
                         <div class="dp-flex">
                             <input type="checkbox" name="weekly-reminder" value="weekly reminder"
                                 class="reminder-checkbox" id="check-wr" checked>
-                            <label for="weekly-reminder" class="reminder-checkbox-text"> weekly reminders</label><br>
-                        </div>
+                            <label for="weekly-reminder" class="reminder-checkbox-text"> weekly reminders</label>
+                        </div><br>
                         <div class="dp-flex">
                             <input type="checkbox" name="project-update" value="project-update"
                                 class="reminder-checkbox" id="check-pu" checked>
-                            <label for="project-update" class="reminder-checkbox-text">project update</label>
-                        </div>
+                            <label for="project-update" class="reminder-checkbox-text">project updates</label>
+                        </div><br>
                     </div>
                     <div id="reminder-email">
                         <input type="text" id="email-setup" class="email-reminder-setup" name="set up email reminder"
                             placeholder="Email Address">
-                        <span class="material-icons" id="reminder-send">send</span>
+                        <span class="material-icons" id="reminder-send">mail</span>
                     </div>
                 </form>
             </div>
@@ -150,7 +152,7 @@
                             placeholder="Describe what you notice in this moment...">
                         <article type="submit" id="at-input-send" class="dp-none">
                             <span class=" material-icons">
-                                send
+                                try
                             </span>
                         </article>
                     </form>
@@ -205,9 +207,8 @@
                         <p>
                             This particular plot is on unceded Tongva, Chumash, and Kizh land. Weather here is generally
                             dry and sunny in the Spring, with daytime temperatures ranging from 70-80° F and evenings at
-                            around 50-60° F. The garden's fate will change based on the living assemblage of
-                            instructions generated here each week, as well as the moderation of the artist. The initial
-                            course of this project will run for a month or longer.
+                            around 50-60° F. The garden's fate relies on the negotiation of
+                            instructions here each week, as well as the moderation and capabilities of the artist. 
 
                             <br><br><br>
                         </p>
@@ -228,25 +229,21 @@
                     </div>
 
                     <div id="about-network" style="display:none">
-                        <p>
-                            You are currently on the Beaker browser, which runs the Hypercore protocol. Hypercore
-                            (hyper://)
-                            is a peer-to-peer network where data is held and exchanged between site visitor only.
-                            Instead of
-                            a central server such as Amazon Web Services, we each can have a direct role in keeping this
-                            site live.<br>
-                            <br>
+                        <p>In a decentralized network, we directly sharing the responsibility of keep a website running, bypassing a central server like Amazon Web Services or Google Cloud Platform. Currently, files for this website are decentralized through the Beaker Browser, which runs on a peer-to-peer protocol called Hypercore (hyper://). However, messages and email addresses are still stored in a central server, which we aim to decentralize over the course of this initial run of the project.
+                        <br>
+                        <br>
 
-                            <b>Simply click on <img src="images/hyper-host-icon.png" style="width: 35px"></img> in the
-                                top right corner, then
-                                toggle "Host this Hyperdrive".</b> This makes you a node of the network of people
-                            hosting
-                            <i>Open Garden</i>. Now, whenever you are here, new visitors will be also be able to access
-                            the
-                            garden. The more people we have hosting together, the more likely the site will be
-                            accessible at
-                            any given time.
-                            <br><br><br></p>
+                        You are invited to "seed" the website to keep <i>Open Garden</i> up and running:<br><br> 
+
+                        <b>Simply click on <img src="images/hyper-host-icon.png" style="width: 30px"></img> in the
+                            top right corner, then
+                            toggle "Host this Hyperdrive".</b><br><br> 
+
+                            Now whenever you are here, you act as a node of a network of folks keeping the site live for newcomers. The more people we have seeding together, the more likely the site will be
+                        accessible at
+                        any given time. We also encourage you to seed the website when Beaker is closed. Just check your settings (visit URL “beaker://settings/”) and make sure you allow "Let Beaker run in the background". 
+                        <br>
+                        <br><br></p>
                     </div>
 
                     <hr><br>
@@ -269,9 +266,9 @@
                             rel="noopener noreferrer">Alexander Babbitt</a>.
                         <br>
                         <br>
-                        Many thanks to friends at Surface Tension, <a href="https://virtualcarelab.com/" target="_blank"
-                            rel="noopener noreferrer">virtual care lab</a>, and housemates Kylie, Alex, and Terry for
-                        your knowledge, feedback, and generous support.
+                        Many thanks to friends at <a href="https://discord.gg/FKrjCakJ9K">Surface Tension</a> and <a href="https://virtualcarelab.com/" target="_blank"
+                            rel="noopener noreferrer">virtual care lab</a>, as well as housemates Kylie, Alex, and Terry for
+                        your attention, knowledge, feedback, and generous support.
                         <br><br><br>
                     </p>
             </article>

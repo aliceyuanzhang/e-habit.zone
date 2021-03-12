@@ -53,6 +53,29 @@ var firstButtonIcon = document.getElementById('at-input-send');
 var restButtons = document.getElementsByClassName("restButtons");
 var backButton = document.getElementById('choice-button-back');
 
+//funds
+var funds = document.getElementById('funds');
+var donation_icon = document.getElementById('donation-icon')
+
+function showFunds() {
+    funds.style.display = "block";
+}
+
+function moveFunds() {
+    funds.style.top = event.clientY + 40 + "px";
+    funds.style.left = event.clientX - 100 + "px";
+}
+
+function hideFunds() {
+    funds.style.display = "none";
+}
+
+
+donation_icon.addEventListener('mouseenter', showFunds);
+donation_icon.addEventListener('mouseleave', hideFunds);
+window.addEventListener('mousemove', moveFunds);
+
+//hypertip
 var hypertip = document.getElementById('hypertip');
 var hypertip_icon = document.getElementById('hypertip-icon')
 
@@ -206,7 +229,7 @@ audio_day.addEventListener('ended', function () {
     this.play();
 }, false);
 
-var audio_night = new Audio('sound/silence.mp3');
+var audio_night = new Audio('sound/night.mp3');
 audio_night.addEventListener('ended', function () {
     this.currentTime = 0;
     this.play();
