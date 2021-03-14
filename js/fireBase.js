@@ -1,3 +1,7 @@
+// const {
+//     isAbsolute
+// } = require("node:path");
+
 const firebaseConfig = {
     apiKey: "AIzaSyAwtkgE-ZlBNziw_L3M3Dx7qbwGKEpU6Zg",
     authDomain: "open-garden-culturehub-01.firebaseapp.com",
@@ -13,7 +17,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database().ref("/alt-text-input");
 const reminderdb = firebase.database().ref("/email-for-reminder");
-const rtCursor = firebase.database().ref("/cursorPos");
+const rtCursordb = firebase.database().ref("/cursorPos");
+let myUserId;
+let myCursorRef;
 
 // ****** WRITE alt-text input to firebase
 var today = new Date();
@@ -42,14 +48,7 @@ document
     .getElementById("at-input-send")
     .addEventListener("click", () => submitText());
 
-// var altEnterKey = document.getElementById('at-input-send')
 
-// altEnterKey.onkeydown = function (e) {
-//     if (e.keyCode == 13) {
-//         submitText();
-//         console.log("you just submitted")
-//     }
-// };
 
 // ****** READ alt-text input from firebase
 //One time ready 
@@ -72,7 +71,6 @@ db.on("child_added", data => {
     //console.log("New thing added" + id + value);
     addChildToDom(value);
 });
-
 
 function addChildToDom(value) {
     let childNode = document.createElement("LI");
@@ -109,4 +107,98 @@ document
     .getElementById("reminder-send")
     .addEventListener("click", () => submitEmail());
 
-//update cursor location
+//update cursor location 
+
+//fetch current user mouse event
+var current_xpos;
+var current_ypos;
+
+function fetchCursors(mouseEvent) {
+
+    if (mouseEvent) {
+        //FireFox
+        current_xpos = mouseEvent.clientX;
+        current_ypos = mouseEvent.clientY;
+    } else {
+        //IE
+        current_xpos = window.event.clientX;
+        current_ypos = window.event.clientY;
+    }
+}
+
+//whenever you move you are sending cursor value
+document.body.onmousemove = fetchCursors;
+
+//trigger function on page load
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        //alert('i am loaded!');
+        sendCursorCoor();
+    }
+}
+
+function sendCursorCoor() {
+    //Get key from firebase4
+    let newCursorkey = rtCursordb.push().key;
+
+    //set up an {user id, xpos, ypos}
+    let userCursors = {
+        "my_xpos": current_xpos,
+        "my_ypos": current_ypos
+    }
+    //Create dictionary with updates
+    let cursor_updates = {};
+    cursor_updates[newCursorkey] = userCursors;
+    //Push to repo
+    rtCursordb.update(cursor_updates);
+    console.log("user id: " + newCursorkey);
+
+    //save a local reference of myself
+    myUserId = newCursorkey;
+    myCursorRef = firebase.database().ref("/cursorPos/" + myUserId);
+    myCursorRef.onDisconnect().remove(); //remove myself when I'm disconnected
+
+    //2 sec update
+    setInterval(updateCursorCoor, 2000);
+}
+
+function updateCursorCoor() {
+
+    if (myUserId) {
+        let userCursors = {
+            "my_xpos": current_xpos,
+            "my_ypos": current_ypos
+        }
+        //Create dictionary with updates
+        let cursor_updates = {};
+        cursor_updates[myUserId] = userCursors;
+        //Push to repo
+        rtCursordb.update(cursor_updates);
+        //console.log("i update!")
+    }
+}
+
+//when any new value is received, udpate the content
+rtCursordb.on('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+    //create new div for new mouse and append to "screenCoords"
+    document.getElementById('screenCoords').innerHTML = '';
+    for (let k in data) {
+        let d = data[k];
+        let x = d.my_xpos;
+        let y = d.my_ypos;
+        //console.log(x, y);
+        var newMouseDiv = document.createElement("div");
+        //div style for other cursor position
+        newMouseDiv.style.position = "absolute";
+        newMouseDiv.style.width = "20px";
+        newMouseDiv.style.height = "20px";
+        newMouseDiv.style.borderRadius = "50px";
+        newMouseDiv.style.left = x;
+        newMouseDiv.style.top = y;
+        newMouseDiv.style.backgroundColor = "orange";
+        newMouseDiv.style.zIndex = "15";
+        document.getElementById('screenCoords').append(newMouseDiv);
+    }
+});
