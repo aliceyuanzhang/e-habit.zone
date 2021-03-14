@@ -2,7 +2,7 @@ body, html {
   margin:0;
 }
 html { 
-    background: url(../images/dot-mesh.png), url(http://76.93.33.31:8081/), url(../images/bkgd.jpg) no-repeat center center fixed; 
+    background: url(../images/dot-mesh.png), url(../images/bkgd-gradient.png), url(http://76.93.33.31:8081/), url(../images/bkgd.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -266,7 +266,8 @@ z-index:6;
 
 /*add observations*/
 #pop-up-add-alt {
-  background: linear-gradient(#e9e3e300, #0f0f0f);
+  /*background: linear-gradient(#e9e3e300, #0f0f0f);*/
+  background-color: rgba(0,0,0,0.6);
   height:auto;
   position:relative;
   margin-top:-75vh;
@@ -322,7 +323,7 @@ z-index:6;
 .main-content-onFeed {
   height:75vh;
   position: relative;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.6);
   border-color: white 3px solid;
   border-radius: 20px;
   margin-top:-75vh;

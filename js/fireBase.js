@@ -192,12 +192,12 @@ rtCursordb.on('value', (snapshot) => {
         var newMouseDiv = document.createElement("div");
         //div style for other cursor position
         newMouseDiv.style.position = "absolute";
-        newMouseDiv.style.width = "20px";
-        newMouseDiv.style.height = "20px";
-        newMouseDiv.style.borderRadius = "50px";
+        newMouseDiv.style.width = "12px";
+        newMouseDiv.style.height = "12px";
         newMouseDiv.style.left = x;
         newMouseDiv.style.top = y;
-        newMouseDiv.style.backgroundColor = "orange";
+        newMouseDiv.style.backgroundColor = "#78ff82";
+        newMouseDiv.style.opacity = "0.7";
         newMouseDiv.style.zIndex = "15";
         document.getElementById('screenCoords').append(newMouseDiv);
     }
