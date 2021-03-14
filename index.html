@@ -16,11 +16,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use-->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
     <script src="libs/sunrise-sunset-js/dist/sunrise-sunset.js"></script>
 </head>
 
 
 <body>
+    <div id="screenCoords"></div>
     <div id="open-garden-title">OPEN GARDEN</div>
 
     <div id="funds">This project is made possible through reciprocity. Funds for seeds, labor, material, and rent are
@@ -115,23 +117,22 @@
                                 src="images/time-slider-icon.png"> to see past changes. Instructions left on the pad may
                             be carried out the next Sunday at 10:00am PST. <br></p>
                     </article>
-                    <!---
-                <iframe name="embed_readwrite"
-                    src="https://pad.vvvvvvaria.org/open_garden?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
-                    width="100%" height="600" frameborder="0"></iframe>
-                -->
+                    <!--
                     <iframe name="embed_readwrite" id="embedded-etherpad"
                         src="https://pad.vvvvvvaria.org/open_garden?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
                         frameborder="0"></iframe>
+                        -->
                 </div>
             </div>
             <!--The Set Reminder Section-->
             <div id="pop-up-set-reminder" class="main-content-onFeed dp-none">
                 <form id="reminder-content-wrapper" onsubmit="return false">
                     <div class="reminder-checkbox-div">
+
                         <h2 style="text-align:left; font-family:'Blocus'; font-size: 26px"><i>"What you pay attention
                                 to, grows."</i><br><br></h2>
                         <h2 style="text-align:left">Stay tuned with Open Garden:<br></h2>
+
                         <div class="dp-flex">
                             <input type="checkbox" name="weekly-reminder" value="weekly reminder"
                                 class="reminder-checkbox" id="check-wr" checked>
@@ -258,11 +259,13 @@
                             any given time. We also encourage you to seed the website when Beaker is closed. Just check
                             your settings (visit URL “beaker://settings/”) and make sure you allow "Let Beaker run in
                             the background".
+
                             <br><br>
                             <a href="https://www.notion.so/bhavikspersonal/Open-Garden-Decentralization-25ea15761d884edf964d10c0fbc4c3bd"
                                 target="_blank" rel="noopener noreferrer">Visit this living document</a> to learn more
                             about the main centralized networks we are currently entangled in, as well as our intention,
                             process, and challenges to decentralize Open Garden step by step.
+
                             <br>
                             <br><br></p>
                     </div>
