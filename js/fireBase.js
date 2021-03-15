@@ -198,7 +198,7 @@ rtCursordb.on('value', (snapshot) => {
         newMouseDiv.style.top = y;
         newMouseDiv.style.backgroundColor = "#78ff82";
         newMouseDiv.style.opacity = "0.7";
-        newMouseDiv.style.zIndex = "15";
+        newMouseDiv.style.zIndex = "-100";
         document.getElementById('screenCoords').append(newMouseDiv);
     }
 });
