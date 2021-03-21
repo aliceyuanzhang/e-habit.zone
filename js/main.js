@@ -8,7 +8,7 @@ window.onload = function () {
 
 }
 //fetch countdown for run and close
-const endtime_run = 'March 21 2021 10:00:00 GMT-08:00';
+const endtime_run = 'March 28 2021 10:00:00 GMT-07:00';
 
 function getTimeRemaining(deadline) {
     const total = Date.parse(deadline) - Date.parse(new Date());
