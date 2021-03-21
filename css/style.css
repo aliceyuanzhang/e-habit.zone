@@ -88,7 +88,7 @@ a {
   letter-spacing: 1px;
 }
 
-#countdownClock_run {
+#countdownClock_run, #countdownClock_happening {
   color: #FFFFFF;
 }
 
